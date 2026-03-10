@@ -1,0 +1,32 @@
+{
+  "cli_version": "0.5.0",
+  "checkpoint_id": "e4bf774a911c",
+  "session_id": "ses_32ceaac21ffexF6vmOgdz26Ygi",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-10T08:30:00.91583306Z",
+  "branch": "feat/5178-custom-llm-error",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "astrbot/core/utils/io.py",
+    "main.py",
+    "tests/test_main.py"
+  ],
+  "agent": "OpenCode",
+  "turn_id": "c2f461d9d4b6",
+  "token_usage": {
+    "input_tokens": 32750,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 63,
+    "api_call_count": 1
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-10T08:30:00.912207166Z",
+    "agent_lines": 40,
+    "human_added": 21047,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 21087,
+    "agent_percentage": 0.18969033053540096
+  }
+}
