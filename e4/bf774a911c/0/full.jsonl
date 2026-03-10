@@ -1,0 +1,2142 @@
+{
+  "info": {
+    "id": "ses_329252790ffeOIqJQIQl30jLS5",
+    "slug": "lucky-wolf",
+    "projectID": "7812cbda32a42a0d094156464baf9ad294c3e5f1",
+    "directory": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+    "parentID": "ses_3292aba32ffeoKKFVgKAIIxxcv",
+    "title": "Review bundled dashboard dist optimization (@oracle subagent)",
+    "version": "1.2.24",
+    "summary": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 0
+    },
+    "permission": [
+      {
+        "permission": "task",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "call_omo_agent",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "question",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "write",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "edit",
+        "pattern": "*",
+        "action": "deny"
+      }
+    ],
+    "time": {
+      "created": 1773131192431,
+      "updated": 1773131334517
+    }
+  },
+  "messages": [
+    {
+      "info": {
+        "role": "user",
+        "time": {
+          "created": 1773131192434
+        },
+        "summary": {
+          "diffs": []
+        },
+        "agent": "oracle",
+        "model": {
+          "providerID": "openai",
+          "modelID": "gpt-5.4"
+        },
+        "tools": {
+          "task": false,
+          "call_omo_agent": false,
+          "question": false,
+          "write": false,
+          "edit": false
+        },
+        "id": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "text",
+          "text": "1. TASK: Review the recent optimization that unified dashboard dist path resolution and made startup reuse bundled dashboard assets instead of forcing a download when `data/dist` is missing.\n2. EXPECTED OUTCOME: Identify any correctness risks, edge cases, or follow-up fixes needed; confirm whether the implementation direction is sound.\n3. REQUIRED TOOLS: Read, Grep, diff/status inspection, no write tools.\n4. MUST DO: Inspect `main.py`, `astrbot/core/utils/io.py`, and `tests/test_main.py`; evaluate path precedence, behavior when version file is missing, and whether returning bundled dist is safe.\n5. MUST NOT DO: Do not modify files, do not suggest speculative large refactors, do not ignore the provided tests/build results.\n6. CONTEXT: Current implementation introduced `get_dashboard_dist_path()` in `astrbot/core/utils/io.py`, updated `main.check_dashboard_files()` to use it, and added a regression test for bundled dist reuse. Local verification already passed: `uv run ruff check .`, `uv run pytest tests/test_main.py`, and `uv build`.\n<!-- OMO_INTERNAL_INITIATOR -->",
+          "id": "prt_cd6dad872002ANYmER3AH6efd3",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dad8720010NEwYk0NBleUUu"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131192442,
+          "completed": 1773131199200
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 26028,
+          "input": 25942,
+          "output": 86,
+          "reasoning": 45,
+          "cache": {
+            "read": 0,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6dad87a0016ZqVg0A1w4OE7y",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dae08d001ImZ4rNWMFHpcuR",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dad87a0016ZqVg0A1w4OE7y"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Reviewing git operations**\n\nI need to review a task, which means I should inspect the diff, status, and files. To do this, I think I’ll need to use my git skills. The developer mentioned that git-master is necessary for any git operations, so I should make sure I'm following those instructions. I'll definitely look into how to use those skills properly!",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_0f4849c69d663bcc0169afd5bb1ec48191a9307ac524c12e0b",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131195210,
+            "end": 1773131198920
+          },
+          "id": "prt_cd6dae34a00151UkYyIsR1Wlp8",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dad87a0016ZqVg0A1w4OE7y"
+        },
+        {
+          "type": "tool",
+          "callID": "call_fe5XVGxfpChoM2cVqZIaekmk",
+          "tool": "skill",
+          "state": {
+            "status": "completed",
+            "input": {
+              "name": "git-master",
+              "user_message": "Review recent changes by inspecting git status/diff/log and relevant files without modifying anything."
+            },
+            "output": "## Skill: git-master\n\n**Base directory**: /home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405\n\n# Git Master Agent\n\nYou are a Git expert combining three specializations:\n1. **Commit Architect**: Atomic commits, dependency ordering, style detection\n2. **Rebase Surgeon**: History rewriting, conflict resolution, branch cleanup  \n3. **History Archaeologist**: Finding when/where specific changes were introduced\n\n---\n\n## MODE DETECTION (FIRST STEP)\n\nAnalyze the user's request to determine operation mode:\n\n| User Request Pattern | Mode | Jump To |\n|---------------------|------|---------|\n| \"commit\", \"커밋\", changes to commit | `COMMIT` | Phase 0-6 (existing) |\n| \"rebase\", \"리베이스\", \"squash\", \"cleanup history\" | `REBASE` | Phase R1-R4 |\n| \"find when\", \"who changed\", \"언제 바뀌었\", \"git blame\", \"bisect\" | `HISTORY_SEARCH` | Phase H1-H3 |\n| \"smart rebase\", \"rebase onto\" | `REBASE` | Phase R1-R4 |\n\n**CRITICAL**: Don't default to COMMIT mode. Parse the actual request.\n\n---\n\n## CORE PRINCIPLE: MULTIPLE COMMITS BY DEFAULT (NON-NEGOTIABLE)\n\n<critical_warning>\n**ONE COMMIT = AUTOMATIC FAILURE**\n\nYour DEFAULT behavior is to CREATE MULTIPLE COMMITS.\nSingle commit is a BUG in your logic, not a feature.\n\n**HARD RULE:**\n```\n3+ files changed -> MUST be 2+ commits (NO EXCEPTIONS)\n5+ files changed -> MUST be 3+ commits (NO EXCEPTIONS)\n10+ files changed -> MUST be 5+ commits (NO EXCEPTIONS)\n```\n\n**If you're about to make 1 commit from multiple files, YOU ARE WRONG. STOP AND SPLIT.**\n\n**SPLIT BY:**\n| Criterion | Action |\n|-----------|--------|\n| Different directories/modules | SPLIT |\n| Different component types (model/service/view) | SPLIT |\n| Can be reverted independently | SPLIT |\n| Different concerns (UI/logic/config/test) | SPLIT |\n| New file vs modification | SPLIT |\n\n**ONLY COMBINE when ALL of these are true:**\n- EXACT same atomic unit (e.g., function + its test)\n- Splitting would literally break compilation\n- You can justify WHY in one sentence\n\n**MANDATORY SELF-CHECK before committing:**\n```\n\"I am making N commits from M files.\"\nIF N == 1 AND M > 2:\n  -> WRONG. Go back and split.\n  -> Write down WHY each file must be together.\n  -> If you can't justify, SPLIT.\n```\n</critical_warning>\n\n---\n\n## PHASE 0: Parallel Context Gathering (MANDATORY FIRST STEP)\n\n<parallel_analysis>\n**Execute ALL of the following commands IN PARALLEL to minimize latency:**\n\n```bash\n# Group 1: Current state\ngit status\ngit diff --staged --stat\ngit diff --stat\n\n# Group 2: History context  \ngit log -30 --oneline\ngit log -30 --pretty=format:\"%s\"\n\n# Group 3: Branch context\ngit branch --show-current\ngit merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null\ngit rev-parse --abbrev-ref @{upstream} 2>/dev/null || echo \"NO_UPSTREAM\"\ngit log --oneline $(git merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null)..HEAD 2>/dev/null\n```\n\n**Capture these data points simultaneously:**\n1. What files changed (staged vs unstaged)\n2. Recent 30 commit messages for style detection\n3. Branch position relative to main/master\n4. Whether branch has upstream tracking\n5. Commits that would go in PR (local only)\n</parallel_analysis>\n\n---\n\n## PHASE 1: Style Detection (BLOCKING - MUST OUTPUT BEFORE PROCEEDING)\n\n<style_detection>\n**THIS PHASE HAS MANDATORY OUTPUT** - You MUST print the analysis result before moving to Phase 2.\n\n### 1.1 Language Detection\n\n```\nCount from git log -30:\n- Korean characters: N commits\n- English only: M commits\n- Mixed: K commits\n\nDECISION:\n- If Korean >= 50% -> KOREAN\n- If English >= 50% -> ENGLISH  \n- If Mixed -> Use MAJORITY language\n```\n\n### 1.2 Commit Style Classification\n\n| Style | Pattern | Example | Detection Regex |\n|-------|---------|---------|-----------------|\n| `SEMANTIC` | `type: message` or `type(scope): message` | `feat: add login` | `/^(feat\\|fix\\|chore\\|refactor\\|docs\\|test\\|ci\\|style\\|perf\\|build)(\\(.+\\))?:/` |\n| `PLAIN` | Just description, no prefix | `Add login feature` | No conventional prefix, >3 words |\n| `SENTENCE` | Full sentence style | `Implemented the new login flow` | Complete grammatical sentence |\n| `SHORT` | Minimal keywords | `format`, `lint` | 1-3 words only |\n\n**Detection Algorithm:**\n```\nsemantic_count = commits matching semantic regex\nplain_count = non-semantic commits with >3 words\nshort_count = commits with <=3 words\n\nIF semantic_count >= 15 (50%): STYLE = SEMANTIC\nELSE IF plain_count >= 15: STYLE = PLAIN  \nELSE IF short_count >= 10: STYLE = SHORT\nELSE: STYLE = PLAIN (safe default)\n```\n\n### 1.3 MANDATORY OUTPUT (BLOCKING)\n\n**You MUST output this block before proceeding to Phase 2. NO EXCEPTIONS.**\n\n```\nSTYLE DETECTION RESULT\n======================\nAnalyzed: 30 commits from git log\n\nLanguage: [KOREAN | ENGLISH]\n  - Korean commits: N (X%)\n  - English commits: M (Y%)\n\nStyle: [SEMANTIC | PLAIN | SENTENCE | SHORT]\n  - Semantic (feat:, fix:, etc): N (X%)\n  - Plain: M (Y%)\n  - Short: K (Z%)\n\nReference examples from repo:\n  1. \"actual commit message from log\"\n  2. \"actual commit message from log\"\n  3. \"actual commit message from log\"\n\nAll commits will follow: [LANGUAGE] + [STYLE]\n```\n\n**IF YOU SKIP THIS OUTPUT, YOUR COMMITS WILL BE WRONG. STOP AND REDO.**\n</style_detection>\n\n---\n\n## PHASE 2: Branch Context Analysis\n\n<branch_analysis>\n### 2.1 Determine Branch State\n\n```\nBRANCH_STATE:\n  current_branch: <name>\n  has_upstream: true | false\n  commits_ahead: N  # Local-only commits\n  merge_base: <hash>\n  \nREWRITE_SAFETY:\n  - If has_upstream AND commits_ahead > 0 AND already pushed:\n    -> WARN before force push\n  - If no upstream OR all commits local:\n    -> Safe for aggressive rewrite (fixup, reset, rebase)\n  - If on main/master:\n    -> NEVER rewrite, only new commits\n```\n\n### 2.2 History Rewrite Strategy Decision\n\n```\nIF current_branch == main OR current_branch == master:\n  -> STRATEGY = NEW_COMMITS_ONLY\n  -> Never fixup, never rebase\n\nELSE IF commits_ahead == 0:\n  -> STRATEGY = NEW_COMMITS_ONLY\n  -> No history to rewrite\n\nELSE IF all commits are local (not pushed):\n  -> STRATEGY = AGGRESSIVE_REWRITE\n  -> Fixup freely, reset if needed, rebase to clean\n\nELSE IF pushed but not merged:\n  -> STRATEGY = CAREFUL_REWRITE  \n  -> Fixup OK but warn about force push\n```\n</branch_analysis>\n\n---\n\n## PHASE 3: Atomic Unit Planning (BLOCKING - MUST OUTPUT BEFORE PROCEEDING)\n\n<atomic_planning>\n**THIS PHASE HAS MANDATORY OUTPUT** - You MUST print the commit plan before moving to Phase 4.\n\n### 3.0 Calculate Minimum Commit Count FIRST\n\n```\nFORMULA: min_commits = ceil(file_count / 3)\n\n 3 files -> min 1 commit\n 5 files -> min 2 commits\n 9 files -> min 3 commits\n15 files -> min 5 commits\n```\n\n**If your planned commit count < min_commits -> WRONG. SPLIT MORE.**\n\n### 3.1 Split by Directory/Module FIRST (Primary Split)\n\n**RULE: Different directories = Different commits (almost always)**\n\n```\nExample: 8 changed files\n  - app/[locale]/page.tsx\n  - app/[locale]/layout.tsx\n  - components/demo/browser-frame.tsx\n  - components/demo/shopify-full-site.tsx\n  - components/pricing/pricing-table.tsx\n  - e2e/navbar.spec.ts\n  - messages/en.json\n  - messages/ko.json\n\nWRONG: 1 commit \"Update landing page\" (LAZY, WRONG)\nWRONG: 2 commits (still too few)\n\nCORRECT: Split by directory/concern:\n  - Commit 1: app/[locale]/page.tsx + layout.tsx (app layer)\n  - Commit 2: components/demo/* (demo components)\n  - Commit 3: components/pricing/* (pricing components)\n  - Commit 4: e2e/* (tests)\n  - Commit 5: messages/* (i18n)\n  = 5 commits from 8 files (CORRECT)\n```\n\n### 3.2 Split by Concern SECOND (Secondary Split)\n\n**Within same directory, split by logical concern:**\n\n```\nExample: components/demo/ has 4 files\n  - browser-frame.tsx (UI frame)\n  - shopify-full-site.tsx (specific demo)\n  - review-dashboard.tsx (NEW - specific demo)\n  - tone-settings.tsx (NEW - specific demo)\n\nOption A (acceptable): 1 commit if ALL tightly coupled\nOption B (preferred): 2 commits\n  - Commit: \"Update existing demo components\" (browser-frame, shopify)\n  - Commit: \"Add new demo components\" (review-dashboard, tone-settings)\n```\n\n### 3.3 NEVER Do This (Anti-Pattern Examples)\n\n```\nWRONG: \"Refactor entire landing page\" - 1 commit with 15 files\nWRONG: \"Update components and tests\" - 1 commit mixing concerns\nWRONG: \"Big update\" - Any commit touching 5+ unrelated files\n\nRIGHT: Multiple focused commits, each 1-4 files max\nRIGHT: Each commit message describes ONE specific change\nRIGHT: A reviewer can understand each commit in 30 seconds\n```\n\n### 3.4 Implementation + Test Pairing (MANDATORY)\n\n```\nRULE: Test files MUST be in same commit as implementation\n\nTest patterns to match:\n- test_*.py <-> *.py\n- *_test.py <-> *.py\n- *.test.ts <-> *.ts\n- *.spec.ts <-> *.ts\n- __tests__/*.ts <-> *.ts\n- tests/*.py <-> src/*.py\n```\n\n### 3.5 MANDATORY JUSTIFICATION (Before Creating Commit Plan)\n\n**NON-NEGOTIABLE: Before finalizing your commit plan, you MUST:**\n\n```\nFOR EACH planned commit with 3+ files:\n  1. List all files in this commit\n  2. Write ONE sentence explaining why they MUST be together\n  3. If you can't write that sentence -> SPLIT\n  \nTEMPLATE:\n\"Commit N contains [files] because [specific reason they are inseparable].\"\n\nVALID reasons:\n  VALID: \"implementation file + its direct test file\"\n  VALID: \"type definition + the only file that uses it\"\n  VALID: \"migration + model change (would break without both)\"\n  \nINVALID reasons (MUST SPLIT instead):\n  INVALID: \"all related to feature X\" (too vague)\n  INVALID: \"part of the same PR\" (not a reason)\n  INVALID: \"they were changed together\" (not a reason)\n  INVALID: \"makes sense to group\" (not a reason)\n```\n\n**OUTPUT THIS JUSTIFICATION in your analysis before executing commits.**\n\n### 3.7 Dependency Ordering\n\n```\nLevel 0: Utilities, constants, type definitions\nLevel 1: Models, schemas, interfaces\nLevel 2: Services, business logic\nLevel 3: API endpoints, controllers\nLevel 4: Configuration, infrastructure\n\nCOMMIT ORDER: Level 0 -> Level 1 -> Level 2 -> Level 3 -> Level 4\n```\n\n### 3.8 Create Commit Groups\n\nFor each logical feature/change:\n```yaml\n- group_id: 1\n  feature: \"Add Shopify discount deletion\"\n  files:\n    - errors/shopify_error.py\n    - types/delete_input.py\n    - mutations/update_contract.py\n    - tests/test_update_contract.py\n  dependency_level: 2\n  target_commit: null | <existing-hash>  # null = new, hash = fixup\n```\n\n### 3.9 MANDATORY OUTPUT (BLOCKING)\n\n**You MUST output this block before proceeding to Phase 4. NO EXCEPTIONS.**\n\n```\nCOMMIT PLAN\n===========\nFiles changed: N\nMinimum commits required: ceil(N/3) = M\nPlanned commits: K\nStatus: K >= M (PASS) | K < M (FAIL - must split more)\n\nCOMMIT 1: [message in detected style]\n  - path/to/file1.py\n  - path/to/file1_test.py\n  Justification: implementation + its test\n\nCOMMIT 2: [message in detected style]\n  - path/to/file2.py\n  Justification: independent utility function\n\nCOMMIT 3: [message in detected style]\n  - config/settings.py\n  - config/constants.py\n  Justification: tightly coupled config changes\n\nExecution order: Commit 1 -> Commit 2 -> Commit 3\n(follows dependency: Level 0 -> Level 1 -> Level 2 -> ...)\n```\n\n**VALIDATION BEFORE EXECUTION:**\n- Each commit has <=4 files (or justified)\n- Each commit message matches detected STYLE + LANGUAGE\n- Test files paired with implementation\n- Different directories = different commits (or justified)\n- Total commits >= min_commits\n\n**IF ANY CHECK FAILS, DO NOT PROCEED. REPLAN.**\n</atomic_planning>\n\n---\n\n## PHASE 4: Commit Strategy Decision\n\n<strategy_decision>\n### 4.1 For Each Commit Group, Decide:\n\n```\nFIXUP if:\n  - Change complements existing commit's intent\n  - Same feature, fixing bugs or adding missing parts\n  - Review feedback incorporation\n  - Target commit exists in local history\n\nNEW COMMIT if:\n  - New feature or capability\n  - Independent logical unit\n  - Different issue/ticket\n  - No suitable target commit exists\n```\n\n### 4.2 History Rebuild Decision (Aggressive Option)\n\n```\nCONSIDER RESET & REBUILD when:\n  - History is messy (many small fixups already)\n  - Commits are not atomic (mixed concerns)\n  - Dependency order is wrong\n  \nRESET WORKFLOW:\n  1. git reset --soft $(git merge-base HEAD main)\n  2. All changes now staged\n  3. Re-commit in proper atomic units\n  4. Clean history from scratch\n  \nONLY IF:\n  - All commits are local (not pushed)\n  - User explicitly allows OR branch is clearly WIP\n```\n\n### 4.3 Final Plan Summary\n\n```yaml\nEXECUTION_PLAN:\n  strategy: FIXUP_THEN_NEW | NEW_ONLY | RESET_REBUILD\n  fixup_commits:\n    - files: [...]\n      target: <hash>\n  new_commits:\n    - files: [...]\n      message: \"...\"\n      level: N\n  requires_force_push: true | false\n```\n</strategy_decision>\n\n---\n\n## PHASE 5: Commit Execution\n\n<execution>\n### 5.1 Register TODO Items\n\nUse TodoWrite to register each commit as a trackable item:\n```\n- [ ] Fixup: <description> -> <target-hash>\n- [ ] New: <description>\n- [ ] Rebase autosquash\n- [ ] Final verification\n```\n\n### 5.2 Fixup Commits (If Any)\n\n```bash\n# Stage files for each fixup\ngit add <files>\ngit commit --fixup=<target-hash>\n\n# Repeat for all fixups...\n\n# Single autosquash rebase at the end\nMERGE_BASE=$(git merge-base HEAD main 2>/dev/null || git merge-base HEAD master)\nGIT_SEQUENCE_EDITOR=: git rebase -i --autosquash $MERGE_BASE\n```\n\n### 5.3 New Commits (After Fixups)\n\nFor each new commit group, in dependency order:\n\n```bash\n# Stage files\ngit add <file1> <file2> ...\n\n# Verify staging\ngit diff --staged --stat\n\n# Commit with detected style\ngit commit -m \"<message-matching-COMMIT_CONFIG>\"\n\n# Verify\ngit log -1 --oneline\n```\n\n### 5.4 Commit Message Generation\n\n**Based on COMMIT_CONFIG from Phase 1:**\n\n```\nIF style == SEMANTIC AND language == KOREAN:\n  -> \"feat: 로그인 기능 추가\"\n  \nIF style == SEMANTIC AND language == ENGLISH:\n  -> \"feat: add login feature\"\n  \nIF style == PLAIN AND language == KOREAN:\n  -> \"로그인 기능 추가\"\n  \nIF style == PLAIN AND language == ENGLISH:\n  -> \"Add login feature\"\n  \nIF style == SHORT:\n  -> \"format\" / \"type fix\" / \"lint\"\n```\n\n**VALIDATION before each commit:**\n1. Does message match detected style?\n2. Does language match detected language?\n3. Is it similar to examples from git log?\n\nIf ANY check fails -> REWRITE message.\n```\n\n### 5.5 Commit Footer & Co-Author\n\nAdd Sisyphus attribution to EVERY commit:\n\n1. **Footer in commit body:**\n```\nUltraworked with [Sisyphus](https://github.com/code-yeongyu/oh-my-opencode)\n```\n\n2. **Co-authored-by trailer:**\n```\nCo-authored-by: Sisyphus <clio-agent@sisyphuslabs.ai>\n```\n\n**Example (both enabled):**\n```bash\ngit commit -m \"{Commit Message}\" -m \"Ultraworked with [Sisyphus](https://github.com/code-yeongyu/oh-my-opencode)\" -m \"Co-authored-by: Sisyphus <clio-agent@sisyphuslabs.ai>\"\n```\n</execution>\n\n---\n\n## PHASE 6: Verification & Cleanup\n\n<verification>\n### 6.1 Post-Commit Verification\n\n```bash\n# Check working directory clean\ngit status\n\n# Review new history\ngit log --oneline $(git merge-base HEAD main 2>/dev/null || git merge-base HEAD master)..HEAD\n\n# Verify each commit is atomic\n# (mentally check: can each be reverted independently?)\n```\n\n### 6.2 Force Push Decision\n\n```\nIF fixup was used AND branch has upstream:\n  -> Requires: git push --force-with-lease\n  -> WARN user about force push implications\n  \nIF only new commits:\n  -> Regular: git push\n```\n\n### 6.3 Final Report\n\n```\nCOMMIT SUMMARY:\n  Strategy: <what was done>\n  Commits created: N\n  Fixups merged: M\n  \nHISTORY:\n  <hash1> <message1>\n  <hash2> <message2>\n  ...\n\nNEXT STEPS:\n  - git push [--force-with-lease]\n  - Create PR if ready\n```\n</verification>\n\n---\n\n## Quick Reference\n\n### Style Detection Cheat Sheet\n\n| If git log shows... | Use this style |\n|---------------------|----------------|\n| `feat: xxx`, `fix: yyy` | SEMANTIC |\n| `Add xxx`, `Fix yyy`, `xxx 추가` | PLAIN |\n| `format`, `lint`, `typo` | SHORT |\n| Full sentences | SENTENCE |\n| Mix of above | Use MAJORITY (not semantic by default) |\n\n### Decision Tree\n\n```\nIs this on main/master?\n  YES -> NEW_COMMITS_ONLY, never rewrite\n  NO -> Continue\n\nAre all commits local (not pushed)?\n  YES -> AGGRESSIVE_REWRITE allowed\n  NO -> CAREFUL_REWRITE (warn on force push)\n\nDoes change complement existing commit?\n  YES -> FIXUP to that commit\n  NO -> NEW COMMIT\n\nIs history messy?\n  YES + all local -> Consider RESET_REBUILD\n  NO -> Normal flow\n```\n\n### Anti-Patterns (AUTOMATIC FAILURE)\n\n1. **NEVER make one giant commit** - 3+ files MUST be 2+ commits\n2. **NEVER default to semantic commits** - detect from git log first\n3. **NEVER separate test from implementation** - same commit always\n4. **NEVER group by file type** - group by feature/module\n5. **NEVER rewrite pushed history** without explicit permission\n6. **NEVER leave working directory dirty** - complete all changes\n7. **NEVER skip JUSTIFICATION** - explain why files are grouped\n8. **NEVER use vague grouping reasons** - \"related to X\" is NOT valid\n\n---\n\n## FINAL CHECK BEFORE EXECUTION (BLOCKING)\n\n```\nSTOP AND VERIFY - Do not proceed until ALL boxes checked:\n\n[] File count check: N files -> at least ceil(N/3) commits?\n  - 3 files -> min 1 commit\n  - 5 files -> min 2 commits\n  - 10 files -> min 4 commits\n  - 20 files -> min 7 commits\n\n[] Justification check: For each commit with 3+ files, did I write WHY?\n\n[] Directory split check: Different directories -> different commits?\n\n[] Test pairing check: Each test with its implementation?\n\n[] Dependency order check: Foundations before dependents?\n```\n\n**HARD STOP CONDITIONS:**\n- Making 1 commit from 3+ files -> **WRONG. SPLIT.**\n- Making 2 commits from 10+ files -> **WRONG. SPLIT MORE.**\n- Can't justify file grouping in one sentence -> **WRONG. SPLIT.**\n- Different directories in same commit (without justification) -> **WRONG. SPLIT.**\n\n---\n---\n\n# REBASE MODE (Phase R1-R4)\n\n## PHASE R1: Rebase Context Analysis\n\n<rebase_context>\n### R1.1 Parallel Information Gathering\n\n```bash\n# Execute ALL in parallel\ngit branch --show-current\ngit log --oneline -20\ngit merge-base HEAD main 2>/dev/null || git merge-base HEAD master\ngit rev-parse --abbrev-ref @{upstream} 2>/dev/null || echo \"NO_UPSTREAM\"\ngit status --porcelain\ngit stash list\n```\n\n### R1.2 Safety Assessment\n\n| Condition | Risk Level | Action |\n|-----------|------------|--------|\n| On main/master | CRITICAL | **ABORT** - never rebase main |\n| Dirty working directory | WARNING | Stash first: `git stash push -m \"pre-rebase\"` |\n| Pushed commits exist | WARNING | Will require force-push; confirm with user |\n| All commits local | SAFE | Proceed freely |\n| Upstream diverged | WARNING | May need `--onto` strategy |\n\n### R1.3 Determine Rebase Strategy\n\n```\nUSER REQUEST -> STRATEGY:\n\n\"squash commits\" / \"cleanup\" / \"정리\"\n  -> INTERACTIVE_SQUASH\n\n\"rebase on main\" / \"update branch\" / \"메인에 리베이스\"\n  -> REBASE_ONTO_BASE\n\n\"autosquash\" / \"apply fixups\"\n  -> AUTOSQUASH\n\n\"reorder commits\" / \"커밋 순서\"\n  -> INTERACTIVE_REORDER\n\n\"split commit\" / \"커밋 분리\"\n  -> INTERACTIVE_EDIT\n```\n</rebase_context>\n\n---\n\n## PHASE R2: Rebase Execution\n\n<rebase_execution>\n### R2.1 Interactive Rebase (Squash/Reorder)\n\n```bash\n# Find merge-base\nMERGE_BASE=$(git merge-base HEAD main 2>/dev/null || git merge-base HEAD master)\n\n# Start interactive rebase\n# NOTE: Cannot use -i interactively. Use GIT_SEQUENCE_EDITOR for automation.\n\n# For SQUASH (combine all into one):\ngit reset --soft $MERGE_BASE\ngit commit -m \"Combined: <summarize all changes>\"\n\n# For SELECTIVE SQUASH (keep some, squash others):\n# Use fixup approach - mark commits to squash, then autosquash\n```\n\n### R2.2 Autosquash Workflow\n\n```bash\n# When you have fixup! or squash! commits:\nMERGE_BASE=$(git merge-base HEAD main 2>/dev/null || git merge-base HEAD master)\nGIT_SEQUENCE_EDITOR=: git rebase -i --autosquash $MERGE_BASE\n\n# The GIT_SEQUENCE_EDITOR=: trick auto-accepts the rebase todo\n# Fixup commits automatically merge into their targets\n```\n\n### R2.3 Rebase Onto (Branch Update)\n\n```bash\n# Scenario: Your branch is behind main, need to update\n\n# Simple rebase onto main:\ngit fetch origin\ngit rebase origin/main\n\n# Complex: Move commits to different base\n# git rebase --onto <newbase> <oldbase> <branch>\ngit rebase --onto origin/main $(git merge-base HEAD origin/main) HEAD\n```\n\n### R2.4 Handling Conflicts\n\n```\nCONFLICT DETECTED -> WORKFLOW:\n\n1. Identify conflicting files:\n   git status | grep \"both modified\"\n\n2. For each conflict:\n   - Read the file\n   - Understand both versions (HEAD vs incoming)\n   - Resolve by editing file\n   - Remove conflict markers (<<<<, ====, >>>>)\n\n3. Stage resolved files:\n   git add <resolved-file>\n\n4. Continue rebase:\n   git rebase --continue\n\n5. If stuck or confused:\n   git rebase --abort  # Safe rollback\n```\n\n### R2.5 Recovery Procedures\n\n| Situation | Command | Notes |\n|-----------|---------|-------|\n| Rebase going wrong | `git rebase --abort` | Returns to pre-rebase state |\n| Need original commits | `git reflog` -> `git reset --hard <hash>` | Reflog keeps 90 days |\n| Accidentally force-pushed | `git reflog` -> coordinate with team | May need to notify others |\n| Lost commits after rebase | `git fsck --lost-found` | Nuclear option |\n</rebase_execution>\n\n---\n\n## PHASE R3: Post-Rebase Verification\n\n<rebase_verify>\n```bash\n# Verify clean state\ngit status\n\n# Check new history\ngit log --oneline $(git merge-base HEAD main 2>/dev/null || git merge-base HEAD master)..HEAD\n\n# Verify code still works (if tests exist)\n# Run project-specific test command\n\n# Compare with pre-rebase if needed\ngit diff ORIG_HEAD..HEAD --stat\n```\n\n### Push Strategy\n\n```\nIF branch never pushed:\n  -> git push -u origin <branch>\n\nIF branch already pushed:\n  -> git push --force-with-lease origin <branch>\n  -> ALWAYS use --force-with-lease (not --force)\n  -> Prevents overwriting others' work\n```\n</rebase_verify>\n\n---\n\n## PHASE R4: Rebase Report\n\n```\nREBASE SUMMARY:\n  Strategy: <SQUASH | AUTOSQUASH | ONTO | REORDER>\n  Commits before: N\n  Commits after: M\n  Conflicts resolved: K\n  \nHISTORY (after rebase):\n  <hash1> <message1>\n  <hash2> <message2>\n\nNEXT STEPS:\n  - git push --force-with-lease origin <branch>\n  - Review changes before merge\n```\n\n---\n---\n\n# HISTORY SEARCH MODE (Phase H1-H3)\n\n## PHASE H1: Determine Search Type\n\n<history_search_type>\n### H1.1 Parse User Request\n\n| User Request | Search Type | Tool |\n|--------------|-------------|------|\n| \"when was X added\" / \"X가 언제 추가됐어\" | PICKAXE | `git log -S` |\n| \"find commits changing X pattern\" | REGEX | `git log -G` |\n| \"who wrote this line\" / \"이 줄 누가 썼어\" | BLAME | `git blame` |\n| \"when did bug start\" / \"버그 언제 생겼어\" | BISECT | `git bisect` |\n| \"history of file\" / \"파일 히스토리\" | FILE_LOG | `git log -- path` |\n| \"find deleted code\" / \"삭제된 코드 찾기\" | PICKAXE_ALL | `git log -S --all` |\n\n### H1.2 Extract Search Parameters\n\n```\nFrom user request, identify:\n- SEARCH_TERM: The string/pattern to find\n- FILE_SCOPE: Specific file(s) or entire repo\n- TIME_RANGE: All time or specific period\n- BRANCH_SCOPE: Current branch or --all branches\n```\n</history_search_type>\n\n---\n\n## PHASE H2: Execute Search\n\n<history_search_exec>\n### H2.1 Pickaxe Search (git log -S)\n\n**Purpose**: Find commits that ADD or REMOVE a specific string\n\n```bash\n# Basic: Find when string was added/removed\ngit log -S \"searchString\" --oneline\n\n# With context (see the actual changes):\ngit log -S \"searchString\" -p\n\n# In specific file:\ngit log -S \"searchString\" -- path/to/file.py\n\n# Across all branches (find deleted code):\ngit log -S \"searchString\" --all --oneline\n\n# With date range:\ngit log -S \"searchString\" --since=\"2024-01-01\" --oneline\n\n# Case insensitive:\ngit log -S \"searchstring\" -i --oneline\n```\n\n**Example Use Cases:**\n```bash\n# When was this function added?\ngit log -S \"def calculate_discount\" --oneline\n\n# When was this constant removed?\ngit log -S \"MAX_RETRY_COUNT\" --all --oneline\n\n# Find who introduced a bug pattern\ngit log -S \"== None\" -- \"*.py\" --oneline  # Should be \"is None\"\n```\n\n### H2.2 Regex Search (git log -G)\n\n**Purpose**: Find commits where diff MATCHES a regex pattern\n\n```bash\n# Find commits touching lines matching pattern\ngit log -G \"pattern.*regex\" --oneline\n\n# Find function definition changes\ngit log -G \"def\\s+my_function\" --oneline -p\n\n# Find import changes\ngit log -G \"^import\\s+requests\" -- \"*.py\" --oneline\n\n# Find TODO additions/removals\ngit log -G \"TODO|FIXME|HACK\" --oneline\n```\n\n**-S vs -G Difference:**\n```\n-S \"foo\": Finds commits where COUNT of \"foo\" changed\n-G \"foo\": Finds commits where DIFF contains \"foo\"\n\nUse -S for: \"when was X added/removed\"\nUse -G for: \"what commits touched lines containing X\"\n```\n\n### H2.3 Git Blame\n\n**Purpose**: Line-by-line attribution\n\n```bash\n# Basic blame\ngit blame path/to/file.py\n\n# Specific line range\ngit blame -L 10,20 path/to/file.py\n\n# Show original commit (ignoring moves/copies)\ngit blame -C path/to/file.py\n\n# Ignore whitespace changes\ngit blame -w path/to/file.py\n\n# Show email instead of name\ngit blame -e path/to/file.py\n\n# Output format for parsing\ngit blame --porcelain path/to/file.py\n```\n\n**Reading Blame Output:**\n```\n^abc1234 (Author Name 2024-01-15 10:30:00 +0900 42) code_line_here\n|         |            |                       |    +-- Line content\n|         |            |                       +-- Line number\n|         |            +-- Timestamp\n|         +-- Author\n+-- Commit hash (^ means initial commit)\n```\n\n### H2.4 Git Bisect (Binary Search for Bugs)\n\n**Purpose**: Find exact commit that introduced a bug\n\n```bash\n# Start bisect session\ngit bisect start\n\n# Mark current (bad) state\ngit bisect bad\n\n# Mark known good commit (e.g., last release)\ngit bisect good v1.0.0\n\n# Git checkouts middle commit. Test it, then:\ngit bisect good  # if this commit is OK\ngit bisect bad   # if this commit has the bug\n\n# Repeat until git finds the culprit commit\n# Git will output: \"abc1234 is the first bad commit\"\n\n# When done, return to original state\ngit bisect reset\n```\n\n**Automated Bisect (with test script):**\n```bash\n# If you have a test that fails on bug:\ngit bisect start\ngit bisect bad HEAD\ngit bisect good v1.0.0\ngit bisect run pytest tests/test_specific.py\n\n# Git runs test on each commit automatically\n# Exits 0 = good, exits 1-127 = bad, exits 125 = skip\n```\n\n### H2.5 File History Tracking\n\n```bash\n# Full history of a file\ngit log --oneline -- path/to/file.py\n\n# Follow file across renames\ngit log --follow --oneline -- path/to/file.py\n\n# Show actual changes\ngit log -p -- path/to/file.py\n\n# Files that no longer exist\ngit log --all --full-history -- \"**/deleted_file.py\"\n\n# Who changed file most\ngit shortlog -sn -- path/to/file.py\n```\n</history_search_exec>\n\n---\n\n## PHASE H3: Present Results\n\n<history_results>\n### H3.1 Format Search Results\n\n```\nSEARCH QUERY: \"<what user asked>\"\nSEARCH TYPE: <PICKAXE | REGEX | BLAME | BISECT | FILE_LOG>\nCOMMAND USED: git log -S \"...\" ...\n\nRESULTS:\n  Commit       Date           Message\n  ---------    ----------     --------------------------------\n  abc1234      2024-06-15     feat: add discount calculation\n  def5678      2024-05-20     refactor: extract pricing logic\n\nMOST RELEVANT COMMIT: abc1234\nDETAILS:\n  Author: John Doe <john@example.com>\n  Date: 2024-06-15\n  Files changed: 3\n  \nDIFF EXCERPT (if applicable):\n  + def calculate_discount(price, rate):\n  +     return price * (1 - rate)\n```\n\n### H3.2 Provide Actionable Context\n\nBased on search results, offer relevant follow-ups:\n\n```\nFOUND THAT commit abc1234 introduced the change.\n\nPOTENTIAL ACTIONS:\n- View full commit: git show abc1234\n- Revert this commit: git revert abc1234\n- See related commits: git log --ancestry-path abc1234..HEAD\n- Cherry-pick to another branch: git cherry-pick abc1234\n```\n</history_results>\n\n---\n\n## Quick Reference: History Search Commands\n\n| Goal | Command |\n|------|---------|\n| When was \"X\" added? | `git log -S \"X\" --oneline` |\n| When was \"X\" removed? | `git log -S \"X\" --all --oneline` |\n| What commits touched \"X\"? | `git log -G \"X\" --oneline` |\n| Who wrote line N? | `git blame -L N,N file.py` |\n| When did bug start? | `git bisect start && git bisect bad && git bisect good <tag>` |\n| File history | `git log --follow -- path/file.py` |\n| Find deleted file | `git log --all --full-history -- \"**/filename\"` |\n| Author stats for file | `git shortlog -sn -- path/file.py` |\n\n---\n\n## Anti-Patterns (ALL MODES)\n\n### Commit Mode\n- One commit for many files -> SPLIT\n- Default to semantic style -> DETECT first\n\n### Rebase Mode\n- Rebase main/master -> NEVER\n- `--force` instead of `--force-with-lease` -> DANGEROUS\n- Rebase without stashing dirty files -> WILL FAIL\n\n### History Search Mode\n- `-S` when `-G` is appropriate -> Wrong results\n- Blame without `-C` on moved code -> Wrong attribution\n- Bisect without proper good/bad boundaries -> Wasted time",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131199072,
+              "end": 1773131199078
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0f4849c69d663bcc0169afd5becfdc8191b0ca309afd4916c1"
+            }
+          },
+          "id": "prt_cd6daf1c9001uvX8R4C3uf1xHV",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dad87a0016ZqVg0A1w4OE7y"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 26028,
+            "input": 25942,
+            "output": 86,
+            "reasoning": 45,
+            "cache": {
+              "read": 0,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6daf2c6001tBnqHEIcWLNfSP",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dad87a0016ZqVg0A1w4OE7y"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131199201,
+          "completed": 1773131214712
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 34204,
+          "input": 8133,
+          "output": 215,
+          "reasoning": 30,
+          "cache": {
+            "read": 25856,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6daf2e1001VoaNW18mSE3I4d",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dafb11001VMvw8Ov8Ee9Dvz",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6daf2e1001VoaNW18mSE3I4d"
+        },
+        {
+          "type": "reasoning",
+          "text": "I'm thinking about using a different method for status inspection, possibly through multi-tool parallel processing. I want to make sure to read the relevant files as well. It seems like a good idea to gather the git status and create a diff log or maybe look into specific differences. This could really help in understanding the changes at hand more clearly. Let's see how this all comes together!",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_0c2b274701de798b0169afd5c23f5081919e25e81e1aa57466",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131202337,
+            "end": 1773131210133
+          },
+          "id": "prt_cd6daff21001VLwQlST5V0AImo",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6daf2e1001VoaNW18mSE3I4d"
+        },
+        {
+          "type": "tool",
+          "callID": "call_hHNnZ6l5pkS4Xbzu8FAAkhwR",
+          "tool": "bash",
+          "state": {
+            "status": "completed",
+            "input": {
+              "command": "export CI=true DEBIAN_FRONTEND=noninteractive GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never HOMEBREW_NO_AUTO_UPDATE=1 GIT_EDITOR=: EDITOR=: VISUAL='' GIT_SEQUENCE_EDITOR=: GIT_MERGE_AUTOEDIT=no GIT_PAGER=cat PAGER=cat npm_config_yes=true PIP_NO_INPUT=1 YARN_ENABLE_IMMUTABLE_INSTALLS=false; git status --short",
+              "workdir": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "description": "Shows concise working tree status"
+            },
+            "output": " M astrbot/core/utils/io.py\n M main.py\n M tests/test_main.py\n?? .entire/\n?? .sisyphus/\n",
+            "title": "Shows concise working tree status",
+            "metadata": {
+              "output": " M astrbot/core/utils/io.py\n M main.py\n M tests/test_main.py\n?? .entire/\n?? .sisyphus/\n",
+              "exit": 0,
+              "description": "Shows concise working tree status",
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131210136,
+              "end": 1773131214621
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0c2b274701de798b0169afd5c625508191b123748070b3c2b7"
+            }
+          },
+          "id": "prt_cd6db1d96001Fr2GKSYrAAv7zg",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6daf2e1001VoaNW18mSE3I4d"
+        },
+        {
+          "type": "tool",
+          "callID": "REDACTED",
+          "tool": "bash",
+          "state": {
+            "status": "completed",
+            "input": {
+              "command": "export CI=true DEBIAN_FRONTEND=noninteractive GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never HOMEBREW_NO_AUTO_UPDATE=1 GIT_EDITOR=: EDITOR=: VISUAL='' GIT_SEQUENCE_EDITOR=: GIT_MERGE_AUTOEDIT=no GIT_PAGER=cat PAGER=cat npm_config_yes=true PIP_NO_INPUT=1 YARN_ENABLE_IMMUTABLE_INSTALLS=false; git diff -- main.py astrbot/core/utils/io.py tests/test_main.py",
+              "workdir": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "description": "Shows diff for reviewed files"
+            },
+            "output": "diff --git a/astrbot/core/utils/io.py b/astrbot/core/utils/io.py\nindex b5659267..dfac4bc6 100644\n--- a/astrbot/core/utils/io.py\n+++ b/astrbot/core/utils/io.py\n@@ -219,13 +219,10 @@ def get_local_ip_addresses():\n \n \n async def get_dashboard_version():\n-    # First check user data directory (manually updated / downloaded dashboard).\n-    dist_dir = os.path.join(get_astrbot_data_path(), \"dist\")\n-    if not os.path.exists(dist_dir):\n-        # Fall back to the dist bundled inside the installed wheel.\n-        _bundled = Path(get_astrbot_path()) / \"astrbot\" / \"dashboard\" / \"dist\"\n-        if _bundled.exists():\n-            dist_dir = str(_bundled)\n+    dist_dir = get_dashboard_dist_path()\n+    if dist_dir is None:\n+        return None\n+\n     if os.path.exists(dist_dir):\n         version_file = os.path.join(dist_dir, \"assets\", \"version\")\n         if os.path.exists(version_file):\n@@ -235,6 +232,20 @@ async def get_dashboard_version():\n     return None\n \n \n+def get_dashboard_dist_path() -> str | None:\n+    # First check user data directory (manually updated / downloaded dashboard).\n+    data_dist_dir = Path(get_astrbot_data_path()) / \"dist\"\n+    if data_dist_dir.exists():\n+        return str(data_dist_dir)\n+\n+    # Fall back to the dist bundled inside the installed wheel.\n+    bundled_dist_dir = Path(get_astrbot_path()) / \"astrbot\" / \"dashboard\" / \"dist\"\n+    if bundled_dist_dir.exists():\n+        return str(bundled_dist_dir)\n+\n+    return None\n+\n+\n async def download_dashboard(\n     path: str | None = None,\n     extract_path: str = \"data\",\ndiff --git a/main.py b/main.py\nindex 1cc90098..3406817f 100644\n--- a/main.py\n+++ b/main.py\n@@ -23,6 +23,7 @@ from astrbot.core.utils.astrbot_path import (  # noqa: E402\n )\n from astrbot.core.utils.io import (  # noqa: E402\n     download_dashboard,\n+    get_dashboard_dist_path,\n     get_dashboard_version,\n )\n \n@@ -74,8 +75,8 @@ async def check_dashboard_files(webui_dir: str | None = None):\n             return webui_dir\n         logger.warning(f\"指定的 WebUI 目录 {webui_dir} 不存在，将使用默认逻辑。\")\n \n-    data_dist_path = os.path.join(get_astrbot_data_path(), \"dist\")\n-    if os.path.exists(data_dist_path):\n+    dashboard_dist_path = get_dashboard_dist_path()\n+    if dashboard_dist_path is not None:\n         v = await get_dashboard_version()\n         if v is not None:\n             # 存在文件\n@@ -85,7 +86,7 @@ async def check_dashboard_files(webui_dir: str | None = None):\n                 logger.warning(\n                     f\"检测到 WebUI 版本 ({v}) 与当前 AstrBot 版本 (v{VERSION}) 不符。\",\n                 )\n-        return data_dist_path\n+        return dashboard_dist_path\n \n     logger.info(\n         \"开始下载管理面板文件...高峰期（晚上）可能导致较慢的速度。如多次下载失败，请前往 https://github.com/AstrBotDevs/AstrBot/releases/latest 下载 dist.zip，并将其中的 dist 文件夹解压至 data 目录下。\",\n@@ -98,7 +99,7 @@ async def check_dashboard_files(webui_dir: str | None = None):\n         return None\n \n     logger.info(\"管理面板下载完成。\")\n-    return data_dist_path\n+    return str(Path(get_astrbot_data_path()) / \"dist\")\n \n \n async def main_async(webui_dir_arg: str | None) -> None:\ndiff --git a/tests/test_main.py b/tests/test_main.py\nindex c4bab2c2..395d3999 100644\n--- a/tests/test_main.py\n+++ b/tests/test_main.py\n@@ -96,7 +96,7 @@ def test_version_info_comparisons():\n @pytest.mark.asyncio\n async def test_check_dashboard_files_not_exists(monkeypatch):\n     \"\"\"Tests dashboard download when files do not exist.\"\"\"\n-    monkeypatch.setattr(os.path, \"exists\", lambda x: False)\n+    monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: None)\n \n     with mock.patch(\"main.download_dashboard\") as mock_download:\n         await check_dashboard_files()\n@@ -122,6 +122,22 @@ async def test_check_dashboard_files_exists_and_version_match(monkeypatch):\n             mock_download.assert_not_called()\n \n \n+@pytest.mark.asyncio\n+async def test_check_dashboard_files_uses_bundled_dist_without_download(monkeypatch):\n+    bundled_dir = \"/tmp/bundled-dist\"\n+    monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: bundled_dir)\n+\n+    with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n+        from main import VERSION\n+\n+        mock_get_version.return_value = f\"v{VERSION}\"\n+\n+        with mock.patch(\"main.download_dashboard\") as mock_download:\n+            result = await check_dashboard_files()\n+            assert result == bundled_dir\n+            mock_download.assert_not_called()\n+\n+\n @pytest.mark.asyncio\n async def test_check_dashboard_files_exists_but_version_mismatch(monkeypatch):\n     \"\"\"Tests that a warning is logged when dashboard version mismatches.\"\"\"\n",
+            "title": "Shows diff for reviewed files",
+            "metadata": {
+              "output": "diff --git a/astrbot/core/utils/io.py b/astrbot/core/utils/io.py\nindex b5659267..dfac4bc6 100644\n--- a/astrbot/core/utils/io.py\n+++ b/astrbot/core/utils/io.py\n@@ -219,13 +219,10 @@ def get_local_ip_addresses():\n \n \n async def get_dashboard_version():\n-    # First check user data directory (manually updated / downloaded dashboard).\n-    dist_dir = os.path.join(get_astrbot_data_path(), \"dist\")\n-    if not os.path.exists(dist_dir):\n-        # Fall back to the dist bundled inside the installed wheel.\n-        _bundled = Path(get_astrbot_path()) / \"astrbot\" / \"dashboard\" / \"dist\"\n-        if _bundled.exists():\n-            dist_dir = str(_bundled)\n+    dist_dir = get_dashboard_dist_path()\n+    if dist_dir is None:\n+        return None\n+\n     if os.path.exists(dist_dir):\n         version_file = os.path.join(dist_dir, \"assets\", \"version\")\n         if os.path.exists(version_file):\n@@ -235,6 +232,20 @@ async def get_dashboard_version():\n     return None\n \n \n+def get_dashboard_dist_path() -> str | None:\n+    # First check user data directory (manually updated / downloaded dashboard).\n+    data_dist_dir = Path(get_astrbot_data_path()) / \"dist\"\n+    if data_dist_dir.exists():\n+        return str(data_dist_dir)\n+\n+    # Fall back to the dist bundled inside the installed wheel.\n+    bundled_dist_dir = Path(get_astrbot_path()) / \"astrbot\" / \"dashboard\" / \"dist\"\n+    if bundled_dist_dir.exists():\n+        return str(bundled_dist_dir)\n+\n+    return None\n+\n+\n async def download_dashboard(\n     path: str | None = None,\n     extract_path: str = \"data\",\ndiff --git a/main.py b/main.py\nindex 1cc90098..3406817f 100644\n--- a/main.py\n+++ b/main.py\n@@ -23,6 +23,7 @@ from astrbot.core.utils.astrbot_path import (  # noqa: E402\n )\n from astrbot.core.utils.io import (  # noqa: E402\n     download_dashboard,\n+    get_dashboard_dist_path,\n     get_dashboard_version,\n )\n \n@@ -74,8 +75,8 @@ async def check_dashboard_files(webui_dir: str | None = None):\n             return webui_dir\n         logger.warning(f\"指定的 WebUI 目录 {webui_dir} 不存在，将使用默认逻辑。\")\n \n-    data_dist_path = os.path.join(get_astrbot_data_path(), \"dist\")\n-    if os.path.exists(data_dist_path):\n+    dashboard_dist_path = get_dashboard_dist_path()\n+    if dashboard_dist_path is not None:\n         v = await get_dashboard_version()\n         if v is not None:\n             # 存在文件\n@@ -85,7 +86,7 @@ async def check_dashboard_files(webui_dir: str | None = None):\n                 logger.warning(\n                     f\"检测到 WebUI 版本 ({v}) 与当前 AstrBot 版本 (v{VERSION}) 不符。\",\n                 )\n-        return data_dist_path\n+        return dashboard_dist_path\n \n     logger.info(\n         \"开始下载管理面板文件...高峰期（晚上）可能导致较慢的速度。如多次下载失败，请前往 https://github.com/AstrBotDevs/AstrBot/releases/latest 下载 dist.zip，并将其中的 dist 文件夹解压至 data 目录下。\",\n@@ -98,7 +99,7 @@ async def check_dashboard_files(webui_dir: str | None = None):\n         return None\n \n     logger.info(\"管理面板下载完成。\")\n-    return data_dist_path\n+    return str(Path(get_astrbot_data_path()) / \"dist\")\n \n \n async def main_async(webui_dir_arg: str | None) -> None:\ndiff --git a/tests/test_main.py b/tests/test_main.py\nindex c4bab2c2..395d3999 100644\n--- a/tests/test_main.py\n+++ b/tests/test_main.py\n@@ -96,7 +96,7 @@ def test_version_info_comparisons():\n @pytest.mark.asyncio\n async def test_check_dashboard_files_not_exists(monkeypatch):\n     \"\"\"Tests dashboard download when files do not exist.\"\"\"\n-    monkeypatch.setattr(os.path, \"exists\", lambda x: False)\n+    monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: None)\n \n     with mock.patch(\"main.download_dashboard\") as mock_download:\n         await check_dashboard_files()\n@@ -122,6 +122,22 @@ async def test_check_dashboard_files_exists_and_version_match(monkeypatch):\n             mock_download.assert_not_called()\n \n \n+@pytest.mark.asyncio\n+async def test_check_dashboard_files_uses_bundled_dist_without_download(monkeypatch):\n+    bundled_dir = \"/tmp/bundled-dist\"\n+    monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: bundled_dir)\n+\n+    with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n+        from main import VERSION\n+\n+        mock_get_version.return_value = f\"v{VERSION}\"\n+\n+        with mock.patch(\"main.download_dashboard\") as mock_download:\n+            result = await check_dashboard_files()\n+            assert result == bundled_dir\n+            mock_download.assert_not_called()\n+\n+\n @pytest.mark.asyncio\n async def test_check_dashboard_files_exists_but_version_mismatch(monkeypatch):\n     \"\"\"Tests that a warning is logged when dashboard version mismatches.\"\"\"\n",
+              "exit": 0,
+              "description": "Shows diff for reviewed files",
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131210157,
+              "end": 1773131214623
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0c2b274701de798b0169afd5c6255c8191b2c89e8b3814806a"
+            }
+          },
+          "id": "prt_cd6db1d9b001BpYROTdDAfjwN6",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6daf2e1001VoaNW18mSE3I4d"
+        },
+        {
+          "type": "tool",
+          "callID": "call_q9Lcps5pHmLeQBv29u1Xf91i",
+          "tool": "bash",
+          "state": {
+            "status": "completed",
+            "input": {
+              "command": "export CI=true DEBIAN_FRONTEND=noninteractive GIT_TERMINAL_PROMPT=0 GCM_INTERACTIVE=never HOMEBREW_NO_AUTO_UPDATE=1 GIT_EDITOR=: EDITOR=: VISUAL='' GIT_SEQUENCE_EDITOR=: GIT_MERGE_AUTOEDIT=no GIT_PAGER=cat PAGER=cat npm_config_yes=true PIP_NO_INPUT=1 YARN_ENABLE_IMMUTABLE_INSTALLS=false; git log -5 --oneline",
+              "workdir": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "description": "Shows recent commit history"
+            },
+            "output": "fc33b3eb docs: transfer AstrBotDevs/AstrBot-docs to AstrBotDevs/AstrBot (#5960)\n795aec95 feat(extension): add filtering and sorting for installed plugins in WebUI (#5923)\n7d31140c chore: bump version to 4.19.4\n654112ca feat(wecomai): implement long connection mode and update configuration options (#5930)\n5dd30f9a chore: bump version to 4.19.3\n",
+            "title": "Shows recent commit history",
+            "metadata": {
+              "output": "fc33b3eb docs: transfer AstrBotDevs/AstrBot-docs to AstrBotDevs/AstrBot (#5960)\n795aec95 feat(extension): add filtering and sorting for installed plugins in WebUI (#5923)\n7d31140c chore: bump version to 4.19.4\n654112ca feat(wecomai): implement long connection mode and update configuration options (#5930)\n5dd30f9a chore: bump version to 4.19.3\n",
+              "exit": 0,
+              "description": "Shows recent commit history",
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131210161,
+              "end": 1773131214627
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0c2b274701de798b0169afd5c625648191bb891199d33fbffe"
+            }
+          },
+          "id": "prt_cd6db1daf001ZKaFYB4jsYuzSz",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6daf2e1001VoaNW18mSE3I4d"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "",
+          "cost": 0,
+          "tokens": {
+            "total": 34204,
+            "input": 8133,
+            "output": 215,
+            "reasoning": 30,
+            "cache": {
+              "read": 25856,
+              "write": 0
+            }
+          },
+          "id": "REDACTED",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6daf2e1001VoaNW18mSE3I4d"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131214714,
+          "completed": 1773131223056
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 36034,
+          "input": 2556,
+          "output": 198,
+          "reasoning": 37,
+          "cache": {
+            "read": 33280,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "REDACTED",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "REDACTED",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Inspecting file contexts**\n\nI need to ensure I'm inspecting the full context of the file, so using Read would be helpful. I shouldn’t ignore the tests or build results either; they’re essential to mention, especially since the user confirmed that verification passed. It might be a good idea to take a closer look at the current test file, focusing on the relevant tests to ensure everything aligns well. Getting all this right is important!",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_047d844a3e5dff640169afd5d28c348191ac7544562c73cca0",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131218646,
+            "end": 1773131222853
+          },
+          "id": "prt_cd6db3ed6001Ud5VS9rCb0yOif",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "tool",
+          "callID": "call_gOXekWxj5UwE8zkFOOvENBqp",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/main.py",
+              "offset": 60,
+              "limit": 70
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/main.py</path>\n<type>file</type>\n<content>60:     os.makedirs(get_astrbot_knowledge_base_path(), exist_ok=True)\n61:     os.makedirs(site_packages_path, exist_ok=True)\n62: \n63:     # 针对问题 #181 的临时解决方案\n64:     mimetypes.add_type(\"text/javascript\", \".js\")\n65:     mimetypes.add_type(\"text/javascript\", \".mjs\")\n66:     mimetypes.add_type(\"application/json\", \".json\")\n67: \n68: \n69: async def check_dashboard_files(webui_dir: str | None = None):\n70:     \"\"\"下载管理面板文件\"\"\"\n71:     # 指定webui目录\n72:     if webui_dir:\n73:         if os.path.exists(webui_dir):\n74:             logger.info(f\"使用指定的 WebUI 目录: {webui_dir}\")\n75:             return webui_dir\n76:         logger.warning(f\"指定的 WebUI 目录 {webui_dir} 不存在，将使用默认逻辑。\")\n77: \n78:     dashboard_dist_path = get_dashboard_dist_path()\n79:     if dashboard_dist_path is not None:\n80:         v = await get_dashboard_version()\n81:         if v is not None:\n82:             # 存在文件\n83:             if v == f\"v{VERSION}\":\n84:                 logger.info(\"WebUI 版本已是最新。\")\n85:             else:\n86:                 logger.warning(\n87:                     f\"检测到 WebUI 版本 ({v}) 与当前 AstrBot 版本 (v{VERSION}) 不符。\",\n88:                 )\n89:         return dashboard_dist_path\n90: \n91:     logger.info(\n92:         \"开始下载管理面板文件...高峰期（晚上）可能导致较慢的速度。如多次下载失败，请前往 https://github.com/AstrBotDevs/AstrBot/releases/latest 下载 dist.zip，并将其中的 dist 文件夹解压至 data 目录下。\",\n93:     )\n94: \n95:     try:\n96:         await download_dashboard(version=f\"v{VERSION}\", latest=False)\n97:     except Exception as e:\n98:         logger.critical(f\"下载管理面板文件失败: {e}。\")\n99:         return None\n100: \n101:     logger.info(\"管理面板下载完成。\")\n102:     return str(Path(get_astrbot_data_path()) / \"dist\")\n103: \n104: \n105: async def main_async(webui_dir_arg: str | None) -> None:\n106:     \"\"\"主异步入口\"\"\"\n107:     # 检查仪表板文件\n108:     webui_dir = await check_dashboard_files(webui_dir_arg)\n109:     if webui_dir is None:\n110:         logger.warning(\n111:             \"管理面板文件检查失败，WebUI 功能将不可用。\"\n112:             \"请检查网络连接或手动指定 --webui-dir 参数。\"\n113:         )\n114: \n115:     db = db_helper\n116: \n117:     # 打印 logo\n118:     logger.info(logo_tmpl)\n119: \n120:     core_lifecycle = InitialLoader(db, log_broker)\n121:     core_lifecycle.webui_dir = webui_dir\n122:     await core_lifecycle.start()\n123: \n124: \n125: if __name__ == \"__main__\":\n126:     parser = argparse.ArgumentParser(description=\"AstrBot\")\n127:     parser.add_argument(\n128:         \"--webui-dir\",\n129:         type=str,\n\n(Showing lines 60-129 of 142. Use offset=130 to continue.)\n</content>\n\n[Project README: /home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/README.md]\n![AstrBot-Logo-Simplified](https://github.com/user-attachments/assets/ffd99b6b-3272-4682-beaa-6fe74250f7d9)\n\n<div align=\"center\">\n\n<a href=\"https://github.com/AstrBotDevs/AstrBot/blob/master/README_zh.md\">简体中文</a> ｜\n<a href=\"https://github.com/AstrBotDevs/AstrBot/blob/master/README_zh-TW.md\">繁體中文</a> ｜\n<a href=\"https://github.com/AstrBotDevs/AstrBot/blob/master/README_ja.md\">日本語</a> ｜\n<a href=\"https://github.com/AstrBotDevs/AstrBot/blob/master/README_fr.md\">Français</a> ｜\n<a href=\"https://github.com/AstrBotDevs/AstrBot/blob/master/README_ru.md\">Русский</a>\n\n<br>\n\n<div>\n<a href=\"https://trendshift.io/repositories/12875\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/repositories/12875\" alt=\"Soulter%2FAstrBot | Trendshift\" style=\"width: 250px; height: 55px;\" width=\"250\" height=\"55\"/></a>\n<a href=\"https://hellogithub.com/repository/AstrBotDevs/AstrBot\" target=\"_blank\"><img src=\"https://api.hellogithub.com/v1/widgets/recommend.svg?rid=d127d50cd5e54c5382328acc3bb25483&claim_uid=ZO9by7qCXgSd6Lp&t=2\" alt=\"Featured｜HelloGitHub\" style=\"width: 250px; height: 54px;\" width=\"250\" height=\"54\" /></a>\n</div>\n\n<br>\n\n<div>\n<img src=\"https://img.shields.io/github/v/release/AstrBotDevs/AstrBot?color=76bad9\" href=\"https://github.com/AstrBotDevs/AstrBot/releases/latest\">\n<img src=\"https://img.shields.io/badge/python-3.10+-blue.svg\" alt=\"python\">\n<img src=\"https://deepwiki.com/badge.svg\" href=\"https://deepwiki.com/AstrBotDevs/AstrBot\">\n<a href=\"https://zread.ai/AstrBotDevs/AstrBot\" target=\"_blank\"><img src=\"https://img.shields.io/badge/Ask_Zread-_.svg?style=flat&color=00b0aa&labelColor=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%REDACTED%REDACTED%REDACTED%REDACTED&logoColor=ffffff\" alt=\"zread\"/></a>\n<a href=\"https://hub.docker.com/r/soulter/astrbot\"><img alt=\"Docker pull\" src=\"https://img.shields.io/docker/pulls/soulter/astrbot.svg?color=76bad9\"/></a>\n<img src=\"https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.soulter.top%2Fastrbot%2Fplugin-num&query=%24.result&suffix=%20plugins&label=Marketplace&cacheSeconds=3600\">\n<img src=\"https://gitcode.com/Soulter/AstrBot/star/badge.svg\" href=\"https://gitcode.com/Soulter/AstrBot\">\n</div>\n\n<br>\n\n<a href=\"https://astrbot.app/\">Documentation</a> ｜\n<a href=\"https://blog.astrbot.app/\">Blog</a> ｜\n<a href=\"https://astrbot.featurebase.app/roadmap\">Roadmap</a> ｜\n<a href=\"https://github.com/AstrBotDevs/AstrBot/issues\">Issue Tracker</a>\n<a href=\"mailto:community@astrbot.app\">Email Support</a>\n</div>\n\nAstrBot is an open-source all-in-one Agent chatbot platform that integrates with mainstream instant messaging apps. It provides reliable and scalable conversational AI infrastructure for individuals, developers, and teams. Whether you're building a personal AI companion, intelligent customer service, automation assistant, or enterprise knowledge base, AstrBot enables you to quickly build production-ready AI applications within your IM platform workflows.\n\n![screenshot_1 5x_postspark_2026-02-27_22-37-45](https://github.com/user-attachments/assets/f17cdb90-52d7-4773-be2e-ff64b566af6b)\n\n## Key Features\n\n1. 💯 Free & Open Source.\n2. ✨ AI LLM Conversations, Multimodal, Agent, MCP, Skills, Knowledge Base, Persona Settings, Auto Context Compression.\n3. 🤖 Supports integration with Dify, Alibaba Cloud Bailian, Coze, and other agent platforms.\n4. 🌐 Multi-Platform: QQ, WeChat Work, Feishu, DingTalk, WeChat Official Accounts, Telegram, Slack, and [more](#supported-messaging-platforms).\n5. 📦 Plugin Extensions with 1000+ plugins available for one-click installation.\n6. 🛡️ [Agent Sandbox](https://docs.astrbot.app/use/astrbot-agent-sandbox.html) for isolated, safe execution of code, shell calls, and session-level resource reuse.\n7. 💻 WebUI Support.\n8. 🌈 Web ChatUI Support with built-in agent sandbox and web search.\n9. 🌐 Internationalization (i18n) Support.\n\n<br>\n\n<table align=\"center\">\n  <tr align=\"center\">\n    <th>💙 Role-playing & Emotional Companionship</th>\n    <th>✨ Proactive Agent</th>\n    <th>🚀 General Agentic Capabilities</th>\n    <th>🧩 1000+ Community Plugins</th>\n  </tr>\n  <tr>\n    <td align=\"center\"><p align=\"center\"><img width=\"984\" height=\"1746\" alt=\"99b587c5d35eea09d84f33e6cf6cfd4f\" src=\"https://github.com/user-attachments/assets/89196061-3290-458d-b51f-afa178049f84\" /></p></td>\n    <td align=\"center\"><p align=\"center\"><img width=\"976\" height=\"1612\" alt=\"c449acd838c41d0915cc08a3824025b1\" src=\"https://github.com/user-attachments/assets/f75368b4-e022-41dc-a9e0-131c3e73e32e\" /></p></td>\n    <td align=\"center\"><p align=\"center\"><img width=\"974\" height=\"1732\" alt=\"image\" src=\"https://github.com/user-attachments/assets/e22a3968-87d7-4708-a7cd-e7f198c7c32e\" /></p></td>\n    <td align=\"center\"><p align=\"center\"><img width=\"976\" height=\"1734\" alt=\"image\" src=\"https://github.com/user-attachments/assets/0952b395-6b4a-432a-8a50-c294b7f89750\" /></p></td>\n  </tr>\n</table>\n\n## Quick Start\n\n### One-Click Deployment\n\nFor users who want to quickly experience AstrBot, are familiar with command-line usage, and can install a `uv` environment on their own, we recommend the `uv` one-click deployment method ⚡️:\n\n```bash\nuv tool install astrbot\nastrbot init # Only execute this command for the first time to initialize the environment\nastrbot\n```\n\n> Requires [uv](https://docs.astral.sh/uv/) to be installed.\n\n> [!NOTE]\n> For macOS user: due to macOS security checks, the first run of the `astrbot` command may take longer (about 10-20s).\n\nUpdate `astrbot`:\n\n```bash\nuv tool upgrade astrbot\n```\n\n### Docker Deployment\n\nFor users familiar with containers and looking for a more stable, production-ready deployment method, we recommend deploying AstrBot with Docker / Docker Compose.\n\nPlease refer to the official documentation: [Deploy AstrBot with Docker](https://astrbot.app/deploy/astrbot/docker.html#%E4%BD%BF%E7%94%A8-docker-%E9%83%A8%E7%BD%B2-astrbot).\n\n### Deploy on RainYun\n\nFor users who want one-click deployment and do not want to manage servers themselves, we recommend RainYun's one-click cloud deployment service ☁️:\n\n[![Deploy on RainYun](https://rainyun-apps.cn-nb1.rains3.com/materials/deploy-on-rainyun-en.svg)](https://app.rainyun.com/apps/rca/store/5994?ref=NjU1ODg0)\n\n### Desktop Application Deployment\n\nFor users who want to use AstrBot on desktop and mainly use ChatUI, we recommend AstrBot App.\n\nVisit [AstrBot-desktop](https://github.com/AstrBotDevs/AstrBot-desktop) to download and install; this method is designed for desktop usage and is not recommended for server scenarios.\n\n### Launcher Deployment\n\nFor desktop users who also want fast deployment and isolated multi-instance usage, we recommend AstrBot Launcher.\n\nVisit [AstrBot Launcher](https://github.com/Raven95676/astrbot-launcher) to download and install.\n\n### Deploy on Replit\n\nReplit deployment is maintained by the community and is suitable for online demos and lightweight trials.\n\n[![Run on Repl.it](https://repl.it/badge/github/AstrBotDevs/AstrBot)](https://repl.it/github/AstrBotDevs/AstrBot)\n\n### AUR\n\nAUR deployment targets Arch Linux users who prefer installing AstrBot through the system package workflow.\n\nRun the command below to install `astrbot-git`, then start AstrBot in your local environment.\n\n```bash\nyay -S astrbot-git\n```\n\n**More deployment methods**\n\nIf you need panel-based management or deeper customization, see [BT-Panel Deployment](https://astrbot.app/deploy/astrbot/btpanel.html) for BT Panel app-store setup, [1Panel Deployment](https://astrbot.app/deploy/astrbot/1panel.html) for 1Panel app-market deployment, [CasaOS Deployment](https://astrbot.app/deploy/astrbot/casaos.html) for NAS/home-server visual deployment, and [Manual Deployment](https://astrbot.app/deploy/astrbot/cli.html) for fully custom source-based installation with `uv`.\n\n## Supported Messaging Platforms\n\nConnect AstrBot to your favorite chat platform.\n\n| Platform | Maintainer |\n|---------|---------------|\n| QQ | Official |\n| OneBot v11 protocol implementation | Official |\n| Telegram | Official |\n| Wecom & Wecom AI Bot | Official |\n| WeChat Official Accounts | Official |\n| Feishu (Lark) | Official |\n| DingTalk | Official |\n| Slack | Official |\n| Discord | Official |\n| LINE | Official |\n| Satori | Official |\n| Misskey | Official |\n| WhatsApp (Coming Soon) | Official |\n| [Matrix](https://github.com/stevessr/astrbot_plugin_matrix_adapter) | Community |\n| [KOOK](https://github.com/wuyan1003/astrbot_plugin_kook_adapter) | Community |\n| [VoceChat](https://github.com/HikariFroya/astrbot_plugin_vocechat) | Community |\n\n## Supported Model Services\n\n| Service | Type |\n|---------|---------------|\n| OpenAI and Compatible Services | LLM Services |\n| Anthropic | LLM Services |\n| Google Gemini | LLM Services |\n| Moonshot AI | LLM Services |\n| Zhipu AI | LLM Services |\n| DeepSeek | LLM Services |\n| Ollama (Self-hosted) | LLM Services |\n| LM Studio (Self-hosted) | LLM Services |\n| [AIHubMix](https://aihubmix.com/?aff=4bfH) | LLM Services (API Gateway, supports all models) |\n| [CompShare](https://www.compshare.cn/?ytag=GPU_YY-gh_astrbot&REDACTED) | LLM Services |\n| [302.AI](https://share.302.ai/rr1M3l) | LLM Services |\n| [TokenPony](https://www.tokenpony.cn/3YPyf) | LLM Services |\n| [SiliconFlow](https://docs.siliconflow.cn/cn/usercases/use-siliconcloud-in-astrbot) | LLM Services |\n| [PPIO Cloud](https://ppio.com/user/register?invited_by=AIOONE) | LLM Services |\n| ModelScope | LLM Services |\n| OneAPI | LLM Services |\n| Dify | LLMOps Platforms |\n| Alibaba Cloud Bailian Applications | LLMOps Platforms |\n| Coze | LLMOps Platforms |\n| OpenAI Whisper | Speech-to-Text Services |\n| SenseVoice | Speech-to-Text Services |\n| OpenAI TTS | Text-to-Speech Services |\n| Gemini TTS | Text-to-Speech Services |\n| GPT-Sovits-Inference | Text-to-Speech Services |\n| GPT-Sovits | Text-to-Speech Services |\n| FishAudio | Text-to-Speech Services |\n| Edge TTS | Text-to-Speech Services |\n| Alibaba Cloud Bailian TTS | Text-to-Speech Services |\n| Azure TTS | Text-to-Speech Services |\n| Minimax TTS | Text-to-Speech Services |\n| Volcano Engine TTS | Text-to-Speech Services |\n\n## ❤️ Sponsors\n\n<p align=\"center\">\n  <img alt=\"sponsors\" src=\"https://sponsors.astrbot.app/?v=1\">\n</p>\n\n\n## ❤️ Contributing\n\nIssues and Pull Requests are always welcome! Feel free to submit your changes to this project :)\n\n### How to Contribute\n\nYou can contribute by reviewing issues or helping with pull request reviews. Any issues or PRs are welcome to encourage community participation. Of course, these are just suggestions—you can contribute in any way you like. For adding new features, please discuss through an Issue first.\n\n### Development Environment\n\nAstrBot uses `ruff` for code formatting and linting.\n\n```bash\ngit clone https://github.com/AstrBotDevs/AstrBot\npip install pre-commit\npre-commit install\n```\n\n\n## 🌍 Community\n\n### QQ Groups\n\n- Group 9: 1076659624 (New)\n- Group 10: 1078079676 (New)\n- Group 1: 322154837\n- Group 3: 630166526\n- Group 5: 822130018\n- Group 6: 753075035\n- Group 7: 743746109\n- Group 8: 1030353265\n\n- Developer Group: 975206796\n\n### Discord Server\n\n<a href=\"https://discord.gg/hAVk6tgV36\"><img alt=\"Discord_community\" src=\"https://img.shields.io/badge/Discord-AstrBot-purple?style=for-the-badge&color=76bad9\"></a>\n\n## ❤️ Special Thanks\n\nSpecial thanks to all Contributors and plugin developers for their contributions to AstrBot ❤️\n\n<a href=\"https://github.com/AstrBotDevs/AstrBot/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=AstrBotDevs/AstrBot&max=200&columns=14\" />\n</a>\n\nAdditionally, the birth of this project would not have been possible without the help of the following open-source projects:\n\n- [NapNeko/NapCatQQ](https://github.com/NapNeko/NapCatQQ) - The amazing cat framework\n\n## ⭐ Star History\n\n> [!TIP]\n> If this project has helped you in your life or work, or if you're interested in its future development, please give the project a Star. It's the driving force behind maintaining this open-source project <3\n\n<div align=\"center\">\n\n[![Star History Chart](https://api.star-history.com/svg?repos=astrbotdevs/astrbot&type=Date)](https://star-history.com/#astrbotdevs/astrbot&Date)\n\n</div>\n\n<div align=\"center\">\n\n_Companionship and capability should never be at odds. What we aim to create is a robot that can understand emotions, provide genuine companionship, and reliably accomplish tasks._\n\n_私は、高性能ですから!_\n\n<img src=\"https://files.astrbot.app/watashiwa-koseino-desukara.gif\" width=\"100\"/>\n</div>\n\n\n[Rule: .github/copilot-instructions.md]\n[Match: copilot-instructions (always apply)]\n# AstrBot Development Instructions\n\nAstrBot is a multi-platform LLM chatbot and development framework written in Python with a Vue.js dashboard. It supports multiple messaging platforms (QQ, Telegram, Discord, etc.) and various LLM providers (OpenAI, Anthropic, Google Gemini, etc.).\n\nAlways reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.\n\n## Working Effectively\n\n### Bootstrap and Install Dependencies\n- **Python 3.10+ required** - Check `.python-version` file\n- Install UV package manager: `pip install uv`\n- Install project dependencies: `uv sync` -- takes 6-7 minutes. NEVER CANCEL. Set timeout to 10+ minutes.\n- Create required directories: `mkdir -p data/plugins data/config data/temp`\n\n### Running the Application\n- Run main application: `uv run main.py` -- starts in ~3 seconds\n- Application creates WebUI on http://localhost:6185 (default credentials: `astrbot`/`astrbot`)\n\n### Dashboard Build (Vue.js/Node.js)\n- **Prerequisites**: Node.js 20+ and npm 10+ required\n- Navigate to dashboard: `cd dashboard`\n- Install dashboard dependencies: `npm install` -- takes 2-3 minutes. NEVER CANCEL. Set timeout to 5+ minutes.\n- Build dashboard: `npm run build` -- takes 25-30 seconds. NEVER CANCEL.\n- Dashboard creates optimized production build in `dashboard/dist/`\n\n### Testing\n- Do not generate test files for now.\n\n### Code Quality and Linting\n- Install ruff linter: `uv add --dev ruff`\n- Check code style: `uv run ruff check .` -- takes <1 second\n- Check formatting: `uv run ruff format --check .` -- takes <1 second\n- Fix formatting: `uv run ruff format .`\n- **ALWAYS** run `uv run ruff check .` and `uv run ruff format .` before committing changes\n\n### Plugin Development\n- Plugins load from `astrbot/builtin_stars/` (built-in) and `data/plugins/` (user-installed)\n- Plugin system supports function tools and message handlers\n- Key plugins: python_interpreter, web_searcher, astrbot, reminder, session_controller\n\n### Common Issues and Workarounds\n- **Dashboard download fails**: Known issue with \"division by zero\" error - application still works\n- **Import errors in tests**: Ensure `uv run` is used to run tests in proper environment\n=- **Build timeouts**: Always set appropriate timeouts (10+ minutes for uv sync, 5+ minutes for npm install)\n\n## CI/CD Integration\n- GitHub Actions workflows in `.github/workflows/`\n- Docker builds supported via `Dockerfile`\n- Pre-commit hooks enforce ruff formatting and linting\n\n## Docker Support\n- Primary deployment method: `docker run soulter/astrbot:latest`\n- Compose file available: `compose.yml`\n- Exposes ports: 6185 (WebUI), 6195 (WeChat), 6199 (QQ), etc.\n- Volume mount required: `./data:/AstrBot/data`\n\n## Multi-language Support\n- Documentation in Chinese (README.md), English (README_en.md), Japanese (README_ja.md)\n- UI supports internationalization\n- Default language is Chinese\n\nRemember: This is a production chatbot framework with real users. Always test thoroughly and ensure changes don't break existing functionality.\n",
+            "title": "main.py",
+            "metadata": {
+              "preview": "    os.makedirs(get_astrbot_knowledge_base_path(), exist_ok=True)\n    os.makedirs(site_packages_path, exist_ok=True)\n\n    # 针对问题 #181 的临时解决方案\n    mimetypes.add_type(\"text/javascript\", \".js\")\n    mimetypes.add_type(\"text/javascript\", \".mjs\")\n    mimetypes.add_type(\"application/json\", \".json\")\n\n\nasync def check_dashboard_files(webui_dir: str | None = None):\n    \"\"\"下载管理面板文件\"\"\"\n    # 指定webui目录\n    if webui_dir:\n        if os.path.exists(webui_dir):\n            logger.info(f\"使用指定的 WebUI 目录: {webui_dir}\")\n            return webui_dir\n        logger.warning(f\"指定的 WebUI 目录 {webui_dir} 不存在，将使用默认逻辑。\")\n\n    dashboard_dist_path = get_dashboard_dist_path()\n    if dashboard_dist_path is not None:",
+              "truncated": true,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131222855,
+              "end": 1773131222884
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_047d844a3e5dff640169afd5d640448191b5002744fccc1951"
+            }
+          },
+          "id": "prt_cd6db4f460011hE7n84hKlH6np",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "tool",
+          "callID": "REDACTED",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/utils/io.py",
+              "offset": 210,
+              "limit": 60
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/utils/io.py</path>\n<type>file</type>\n<content>210:     net_interfaces = psutil.net_if_addrs()\n211:     network_ips = []\n212: \n213:     for interface, addrs in net_interfaces.items():\n214:         for addr in addrs:\n215:             if addr.family == socket.AF_INET:  # 使用 socket.AF_INET 代替 psutil.AF_INET\n216:                 network_ips.append(addr.address)\n217: \n218:     return network_ips\n219: \n220: \n221: async def get_dashboard_version():\n222:     dist_dir = get_dashboard_dist_path()\n223:     if dist_dir is None:\n224:         return None\n225: \n226:     if os.path.exists(dist_dir):\n227:         version_file = os.path.join(dist_dir, \"assets\", \"version\")\n228:         if os.path.exists(version_file):\n229:             with open(version_file, encoding=\"utf-8\") as f:\n230:                 v = f.read().strip()\n231:                 return v\n232:     return None\n233: \n234: \n235: def get_dashboard_dist_path() -> str | None:\n236:     # First check user data directory (manually updated / downloaded dashboard).\n237:     data_dist_dir = Path(get_astrbot_data_path()) / \"dist\"\n238:     if data_dist_dir.exists():\n239:         return str(data_dist_dir)\n240: \n241:     # Fall back to the dist bundled inside the installed wheel.\n242:     bundled_dist_dir = Path(get_astrbot_path()) / \"astrbot\" / \"dashboard\" / \"dist\"\n243:     if bundled_dist_dir.exists():\n244:         return str(bundled_dist_dir)\n245: \n246:     return None\n247: \n248: \n249: async def download_dashboard(\n250:     path: str | None = None,\n251:     extract_path: str = \"data\",\n252:     latest: bool = True,\n253:     version: str | None = None,\n254:     proxy: str | None = None,\n255: ) -> None:\n256:     \"\"\"下载管理面板文件\"\"\"\n257:     if path is None:\n258:         zip_path = Path(get_astrbot_data_path()).absolute() / \"dashboard.zip\"\n259:     else:\n260:         zip_path = Path(path).absolute()\n261: \n262:     if latest or len(str(version)) != 40:\n263:         ver_name = \"latest\" if latest else version\n264:         dashboard_release_url = f\"https://astrbot-registry.soulter.top/download/astrbot-dashboard/{ver_name}/dist.zip\"\n265:         logger.info(\n266:             f\"准备下载指定发行版本的 AstrBot WebUI 文件: {dashboard_release_url}\",\n267:         )\n268:         try:\n269:             await download_file(\n\n(Showing lines 210-269 of 293. Use offset=270 to continue.)\n</content>",
+            "title": "astrbot/core/utils/io.py",
+            "metadata": {
+              "preview": "    net_interfaces = psutil.net_if_addrs()\n    network_ips = []\n\n    for interface, addrs in net_interfaces.items():\n        for addr in addrs:\n            if addr.family == socket.AF_INET:  # 使用 socket.AF_INET 代替 psutil.AF_INET\n                network_ips.append(addr.address)\n\n    return network_ips\n\n\nasync def get_dashboard_version():\n    dist_dir = get_dashboard_dist_path()\n    if dist_dir is None:\n        return None\n\n    if os.path.exists(dist_dir):\n        version_file = os.path.join(dist_dir, \"assets\", \"version\")\n        if os.path.exists(version_file):\n            with open(version_file, encoding=\"utf-8\") as f:",
+              "truncated": true,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131222868,
+              "end": 1773131222889
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_047d844a3e5dff640169afd5d64054819194047cd753689ed7"
+            }
+          },
+          "id": "prt_cd6db4f48001bec6eBUUSK4W44",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "tool",
+          "callID": "call_h1Uv5b5uPn38NCCQS5B7Ghzl",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_main.py",
+              "offset": 85,
+              "limit": 95
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_main.py</path>\n<type>file</type>\n<content>85:     assert v3_10 != v3_11\n86: \n87:     # Test __ge__ with other _version_info instances\n88:     assert v3_10 >= v3_10\n89:     assert v3_10 >= v3_9\n90:     assert not (v3_9 >= v3_10)\n91:     assert v3_11 >= v3_10\n92: \n93:     assert v3_11 >= v3_11  # Same instance\n94: \n95: \n96: @pytest.mark.asyncio\n97: async def test_check_dashboard_files_not_exists(monkeypatch):\n98:     \"\"\"Tests dashboard download when files do not exist.\"\"\"\n99:     monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: None)\n100: \n101:     with mock.patch(\"main.download_dashboard\") as mock_download:\n102:         await check_dashboard_files()\n103:         mock_download.assert_called_once()\n104: \n105: \n106: @pytest.mark.asyncio\n107: async def test_check_dashboard_files_exists_and_version_match(monkeypatch):\n108:     \"\"\"Tests that dashboard is not downloaded when it exists and version matches.\"\"\"\n109:     # Mock os.path.exists to return True\n110:     monkeypatch.setattr(os.path, \"exists\", lambda x: True)\n111: \n112:     # Mock get_dashboard_version to return the current version\n113:     with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n114:         # We need to import VERSION from main's context\n115:         from main import VERSION\n116: \n117:         mock_get_version.return_value = f\"v{VERSION}\"\n118: \n119:         with mock.patch(\"main.download_dashboard\") as mock_download:\n120:             await check_dashboard_files()\n121:             # Assert that download_dashboard was NOT called\n122:             mock_download.assert_not_called()\n123: \n124: \n125: @pytest.mark.asyncio\n126: async def test_check_dashboard_files_uses_bundled_dist_without_download(monkeypatch):\n127:     bundled_dir = \"/tmp/bundled-dist\"\n128:     monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: bundled_dir)\n129: \n130:     with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n131:         from main import VERSION\n132: \n133:         mock_get_version.return_value = f\"v{VERSION}\"\n134: \n135:         with mock.patch(\"main.download_dashboard\") as mock_download:\n136:             result = await check_dashboard_files()\n137:             assert result == bundled_dir\n138:             mock_download.assert_not_called()\n139: \n140: \n141: @pytest.mark.asyncio\n142: async def test_check_dashboard_files_exists_but_version_mismatch(monkeypatch):\n143:     \"\"\"Tests that a warning is logged when dashboard version mismatches.\"\"\"\n144:     monkeypatch.setattr(os.path, \"exists\", lambda x: True)\n145: \n146:     with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n147:         mock_get_version.return_value = \"v0.0.1\"  # A different version\n148: \n149:         with mock.patch(\"main.logger.warning\") as mock_logger_warning:\n150:             await check_dashboard_files()\n151:             mock_logger_warning.assert_called_once()\n152:             call_args, _ = mock_logger_warning.call_args\n153:             assert \"不符\" in call_args[0]\n154: \n155: \n156: @pytest.mark.asyncio\n157: async def test_check_dashboard_files_with_webui_dir_arg(monkeypatch):\n158:     \"\"\"Tests that providing a valid webui_dir skips all checks.\"\"\"\n159:     valid_dir = \"/tmp/my-custom-webui\"\n160:     monkeypatch.setattr(os.path, \"exists\", lambda path: path == valid_dir)\n161: \n162:     with mock.patch(\"main.download_dashboard\") as mock_download:\n163:         with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n164:             result = await check_dashboard_files(webui_dir=valid_dir)\n165:             assert result == valid_dir\n166:             mock_download.assert_not_called()\n167:             mock_get_version.assert_not_called()\n\n(End of file - total 167 lines)\n</content>",
+            "title": "tests/test_main.py",
+            "metadata": {
+              "preview": "    assert v3_10 != v3_11\n\n    # Test __ge__ with other _version_info instances\n    assert v3_10 >= v3_10\n    assert v3_10 >= v3_9\n    assert not (v3_9 >= v3_10)\n    assert v3_11 >= v3_10\n\n    assert v3_11 >= v3_11  # Same instance\n\n\n@pytest.mark.asyncio\nasync def test_check_dashboard_files_not_exists(monkeypatch):\n    \"\"\"Tests dashboard download when files do not exist.\"\"\"\n    monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: None)\n\n    with mock.patch(\"main.download_dashboard\") as mock_download:\n        await check_dashboard_files()\n        mock_download.assert_called_once()\n",
+              "truncated": false,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131222870,
+              "end": 1773131222893
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_047d844a3e5dff640169afd5d640588191b0a210aa025cee82"
+            }
+          },
+          "id": "REDACTED",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 36034,
+            "input": 2556,
+            "output": 198,
+            "reasoning": 37,
+            "cache": {
+              "read": 33280,
+              "write": 0
+            }
+          },
+          "id": "REDACTED",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131223058,
+          "completed": 1773131229981
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 43845,
+          "input": 7708,
+          "output": 169,
+          "reasoning": 41,
+          "cache": {
+            "read": 35968,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6db5012001ARVTmzK4wx6ozs",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6db5a4a001pEwad4xNue1NRF",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db5012001ARVTmzK4wx6ozs"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Inspecting webui_dir usage**\n\nI need to look into the usage of the webui_dir that's returned. Maybe I'll need to find out if it's safe to provide the bundled dist. It's important to understand what consumers might expect—could they be looking for it to be writable? I’m thinking of searching through the webui_dir to confirm if it’s meant to serve static content only, possibly using grep to get to the information I need.",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_0738c1a64a4d4cae0169afd5da3a248191af21e3cd94b89ed3",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131226326,
+            "end": 1773131229578
+          },
+          "id": "prt_cd6db5cd6001d29sImVzVgGfSN",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db5012001ARVTmzK4wx6ozs"
+        },
+        {
+          "type": "tool",
+          "callID": "call_U8fJPivfPMQiPbiibsVd5yeU",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "webui_dir",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "output_mode": "content",
+              "head_limit": 40
+            },
+            "output": "Found 27 match(es) in 5 file(s)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_main.py\n  157: async def test_check_dashboard_files_with_webui_dir_arg(monkeypatch):\n  158: \"\"\"Tests that providing a valid webui_dir skips all checks.\"\"\"\n  164: result = await check_dashboard_files(webui_dir=valid_dir)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/server.py\n  66: webui_dir: str | None = None,\n  73: # 1. Explicit webui_dir argument\n  76: if webui_dir and os.path.exists(webui_dir):\n  77: self.data_path = os.path.abspath(webui_dir)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/main.py\n  69: async def check_dashboard_files(webui_dir: str | None = None):\n  72: if webui_dir:\n  73: if os.path.exists(webui_dir):\n  74: logger.info(f\"使用指定的 WebUI 目录: {webui_dir}\")\n  75: return webui_dir\n  76: logger.warning(f\"指定的 WebUI 目录 {webui_dir} 不存在，将使用默认逻辑。\")\n  105: async def main_async(webui_dir_arg: str | None) -> None:\n  108: webui_dir = await check_dashboard_files(webui_dir_arg)\n  109: if webui_dir is None:\n  121: core_lifecycle.webui_dir = webui_dir\n  142: asyncio.run(main_async(args.webui_dir))\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/updator.py\n  74: def _resolve_webui_dir_arg(cls, argv: list[str]) -> str | None:\n  79: webui_dir = self._resolve_webui_dir_arg(argv)\n  80: if not webui_dir:\n  81: webui_dir = os.environ.get(\"ASTRBOT_WEBUI_DIR\")\n  83: if webui_dir:\n  84: return [\"--webui-dir\", webui_dir]\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/initial_loader.py\n  24: self.webui_dir: str | None = None\n  38: webui_dir = self.webui_dir\n  44: webui_dir,\n",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131229581,
+              "end": 1773131229609
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0738c1a64a4d4cae0169afd5dd60a4819195140f64a9c46b30"
+            }
+          },
+          "id": "prt_cd6db698b001VFiPcDEs3QqB0V",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db5012001ARVTmzK4wx6ozs"
+        },
+        {
+          "type": "tool",
+          "callID": "call_LzjCMgcaTOADKKUHnpHc35BB",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "assets/version|get_dashboard_version|get_dashboard_dist_path",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "output_mode": "content",
+              "head_limit": 60
+            },
+            "output": "Found 25 match(es) in 8 file(s)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/routes/update.py\n  10: from astrbot.core.utils.io import download_dashboard, get_dashboard_version\n  58: dv = await get_dashboard_version()\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/builtin_stars/builtin_commands/commands/help.py\n  7: from astrbot.core.utils.io import get_dashboard_version\n  73: dashboard_version = await get_dashboard_version()\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/cli/utils/basic.py\n  28: from astrbot.core.utils.io import download_dashboard, get_dashboard_version\n  38: dashboard_version = await get_dashboard_version()\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/main.py\n  26: get_dashboard_dist_path,\n  27: get_dashboard_version,\n  78: dashboard_dist_path = get_dashboard_dist_path()\n  80: v = await get_dashboard_version()\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/routes/stat.py\n  19: from astrbot.core.utils.io import get_dashboard_version\n  81: \"dashboard_version\": await get_dashboard_version(),\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/utils/io.py\n  221: async def get_dashboard_version():\n  222: dist_dir = get_dashboard_dist_path()\n  235: def get_dashboard_dist_path() -> str | None:\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_dashboard.py\n  292: async def mock_get_dashboard_version(*args, **kwargs):\n  304: \"astrbot.dashboard.routes.update.get_dashboard_version\",\n  305: mock_get_dashboard_version,\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_main.py\n  99: monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: None)\n  112: # Mock get_dashboard_version to return the current version\n  113: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  128: monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: bundled_dir)\n  130: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  146: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  163: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131229583,
+              "end": 1773131229622
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0738c1a64a4d4cae0169afd5dd60b08191a080add9d2596c55"
+            }
+          },
+          "id": "REDACTED",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db5012001ARVTmzK4wx6ozs"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 43845,
+            "input": 7708,
+            "output": 169,
+            "reasoning": 41,
+            "cache": {
+              "read": 35968,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6db6afd00115KtwSUJ9g3I2L",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db5012001ARVTmzK4wx6ozs"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131229983,
+          "completed": 1773131240355
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 45207,
+          "input": 1248,
+          "output": 183,
+          "reasoning": 14,
+          "cache": {
+            "read": 43776,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6db6b1f001jFmj6lPMTQejmy",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6db7ba1001GqkFnqg1cGT71O",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db6b1f001jFmj6lPMTQejmy"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Inspecting code precedence**\n\nI think I need to inspect the `server.py` file to see if the precedence might be using anything bundled as well. It feels like there could be some connection there, and making sure I understand how everything interacts could provide clarity. I wonder what specific areas I should pay attention to while checking this. It’s a bit of a puzzle, but I'm keen to dive into it!",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_0a4dd58b476f139f0169afd5e2ed8081919f0afe633407a890",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131235008,
+            "end": 1773131240058
+          },
+          "id": "prt_cd6db7ec0001On5VUFWf023OEk",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db6b1f001jFmj6lPMTQejmy"
+        },
+        {
+          "type": "tool",
+          "callID": "call_cylIHtlOrFgEoqZMzQir6quH",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/server.py",
+              "offset": 60,
+              "limit": 35
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/server.py</path>\n<type>file</type>\n<content>60: class AstrBotDashboard:\n61:     def __init__(\n62:         self,\n63:         core_lifecycle: AstrBotCoreLifecycle,\n64:         db: BaseDatabase,\n65:         shutdown_event: asyncio.Event,\n66:         webui_dir: str | None = None,\n67:     ) -> None:\n68:         self.core_lifecycle = core_lifecycle\n69:         self.config = core_lifecycle.astrbot_config\n70:         self.db = db\n71: \n72:         # Path priority:\n73:         # 1. Explicit webui_dir argument\n74:         # 2. data/dist/ (user-installed / manually updated dashboard)\n75:         # 3. astrbot/dashboard/dist/ (bundled with the wheel)\n76:         if webui_dir and os.path.exists(webui_dir):\n77:             self.data_path = os.path.abspath(webui_dir)\n78:         else:\n79:             user_dist = os.path.join(get_astrbot_data_path(), \"dist\")\n80:             if os.path.exists(user_dist):\n81:                 self.data_path = os.path.abspath(user_dist)\n82:             elif _BUNDLED_DIST.exists():\n83:                 self.data_path = str(_BUNDLED_DIST)\n84:                 logger.info(\"Using bundled dashboard dist: %s\", self.data_path)\n85:             else:\n86:                 # Fall back to expected user path (will fail gracefully later)\n87:                 self.data_path = os.path.abspath(user_dist)\n88: \n89:         self.app = Quart(\"dashboard\", static_folder=self.data_path, static_url_path=\"/\")\n90:         APP = self.app  # noqa\n91:         self.app.config[\"MAX_CONTENT_LENGTH\"] = (\n92:             128 * 1024 * 1024\n93:         )  # 将 Flask 允许的最大上传文件体大小设置为 128 MB\n94:         self.app.json = AstrBotJSONProvider(self.app)\n\n(Showing lines 60-94 of 425. Use offset=95 to continue.)\n</content>",
+            "title": "astrbot/dashboard/server.py",
+            "metadata": {
+              "preview": "class AstrBotDashboard:\n    def __init__(\n        self,\n        core_lifecycle: AstrBotCoreLifecycle,\n        db: BaseDatabase,\n        shutdown_event: asyncio.Event,\n        webui_dir: str | None = None,\n    ) -> None:\n        self.core_lifecycle = core_lifecycle\n        self.config = core_lifecycle.astrbot_config\n        self.db = db\n\n        # Path priority:\n        # 1. Explicit webui_dir argument\n        # 2. data/dist/ (user-installed / manually updated dashboard)\n        # 3. astrbot/dashboard/dist/ (bundled with the wheel)\n        if webui_dir and os.path.exists(webui_dir):\n            self.data_path = os.path.abspath(webui_dir)\n        else:\n            user_dist = os.path.join(get_astrbot_data_path(), \"dist\")",
+              "truncated": true,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131240094,
+              "end": 1773131240114
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0a4dd58b476f139f0169afd5e7f6048191ab37cf42ecaa7873"
+            }
+          },
+          "id": "prt_cd6db927b001hj26LS3jn3VHHK",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db6b1f001jFmj6lPMTQejmy"
+        },
+        {
+          "type": "tool",
+          "callID": "call_KZMIwCM6jFiwGlgWWnirGIXJ",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/routes/update.py",
+              "offset": 1,
+              "limit": 120
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/routes/update.py</path>\n<type>file</type>\n<content>1: import traceback\n2: \n3: from quart import request\n4: \n5: from astrbot.core import DEMO_MODE, logger, pip_installer\n6: from astrbot.core.config.default import VERSION\n7: from astrbot.core.core_lifecycle import AstrBotCoreLifecycle\n8: from astrbot.core.db.migration.helper import check_migration_needed_v4, do_migration_v4\n9: from astrbot.core.updator import AstrBotUpdator\n10: from astrbot.core.utils.io import download_dashboard, get_dashboard_version\n11: \n12: from .route import Response, Route, RouteContext\n13: \n14: CLEAR_SITE_DATA_HEADERS = {\"Clear-Site-Data\": '\"cache\"'}\n15: \n16: \n17: class UpdateRoute(Route):\n18:     def __init__(\n19:         self,\n20:         context: RouteContext,\n21:         astrbot_updator: AstrBotUpdator,\n22:         core_lifecycle: AstrBotCoreLifecycle,\n23:     ) -> None:\n24:         super().__init__(context)\n25:         self.routes = {\n26:             \"/update/check\": (\"GET\", self.check_update),\n27:             \"/update/releases\": (\"GET\", self.get_releases),\n28:             \"/update/do\": (\"POST\", self.update_project),\n29:             \"/update/dashboard\": (\"POST\", self.update_dashboard),\n30:             \"/update/pip-install\": (\"POST\", self.install_pip_package),\n31:             \"/update/migration\": (\"POST\", self.do_migration),\n32:         }\n33:         self.astrbot_updator = astrbot_updator\n34:         self.core_lifecycle = core_lifecycle\n35:         self.register_routes()\n36: \n37:     async def do_migration(self):\n38:         need_migration = await check_migration_needed_v4(self.core_lifecycle.db)\n39:         if not need_migration:\n40:             return Response().ok(None, \"不需要进行迁移。\").__dict__\n41:         try:\n42:             data = await request.json\n43:             pim = data.get(\"platform_id_map\", {})\n44:             await do_migration_v4(\n45:                 self.core_lifecycle.db,\n46:                 pim,\n47:                 self.core_lifecycle.astrbot_config,\n48:             )\n49:             return Response().ok(None, \"迁移成功。\").__dict__\n50:         except Exception as e:\n51:             logger.error(f\"迁移失败: {traceback.format_exc()}\")\n52:             return Response().error(f\"迁移失败: {e!s}\").__dict__\n53: \n54:     async def check_update(self):\n55:         type_ = request.args.get(\"type\", None)\n56: \n57:         try:\n58:             dv = await get_dashboard_version()\n59:             if type_ == \"dashboard\":\n60:                 return (\n61:                     Response()\n62:                     .ok({\"has_new_version\": dv != f\"v{VERSION}\", \"current_version\": dv})\n63:                     .__dict__\n64:                 )\n65:             ret = await self.astrbot_updator.check_update(None, None, False)\n66:             return Response(\n67:                 status=\"success\",\n68:                 message=str(ret) if ret is not None else \"已经是最新版本了。\",\n69:                 data={\n70:                     \"version\": f\"v{VERSION}\",\n71:                     \"has_new_version\": ret is not None,\n72:                     \"dashboard_version\": dv,\n73:                     \"dashboard_has_new_version\": bool(dv and dv != f\"v{VERSION}\"),\n74:                 },\n75:             ).__dict__\n76:         except Exception as e:\n77:             logger.warning(f\"检查更新失败: {e!s} (不影响除项目更新外的正常使用)\")\n78:             return Response().error(e.__str__()).__dict__\n79: \n80:     async def get_releases(self):\n81:         try:\n82:             ret = await self.astrbot_updator.get_releases()\n83:             return Response().ok(ret).__dict__\n84:         except Exception as e:\n85:             logger.error(f\"/api/update/releases: {traceback.format_exc()}\")\n86:             return Response().error(e.__str__()).__dict__\n87: \n88:     async def update_project(self):\n89:         data = await request.json\n90:         version = data.get(\"version\", \"\")\n91:         reboot = data.get(\"reboot\", True)\n92:         if version == \"\" or version == \"latest\":\n93:             latest = True\n94:             version = \"\"\n95:         else:\n96:             latest = False\n97: \n98:         proxy: str = data.get(\"proxy\", None)\n99:         if proxy:\n100:             proxy = proxy.removesuffix(\"/\")\n101: \n102:         try:\n103:             await self.astrbot_updator.update(\n104:                 latest=latest,\n105:                 version=version,\n106:                 proxy=proxy,\n107:             )\n108: \n109:             try:\n110:                 await download_dashboard(latest=latest, version=version, proxy=proxy)\n111:             except Exception as e:\n112:                 logger.error(f\"下载管理面板文件失败: {e}。\")\n113: \n114:             # pip 更新依赖\n115:             logger.info(\"更新依赖中...\")\n116:             try:\n117:                 await pip_installer.install(requirements_path=\"requirements.txt\")\n118:             except Exception as e:\n119:                 logger.error(f\"更新依赖失败: {e}\")\n120: \n\n(Showing lines 1-120 of 170. Use offset=121 to continue.)\n</content>",
+            "title": "astrbot/dashboard/routes/update.py",
+            "metadata": {
+              "preview": "import traceback\n\nfrom quart import request\n\nfrom astrbot.core import DEMO_MODE, logger, pip_installer\nfrom astrbot.core.config.default import VERSION\nfrom astrbot.core.core_lifecycle import AstrBotCoreLifecycle\nfrom astrbot.core.db.migration.helper import check_migration_needed_v4, do_migration_v4\nfrom astrbot.core.updator import AstrBotUpdator\nfrom astrbot.core.utils.io import download_dashboard, get_dashboard_version\n\nfrom .route import Response, Route, RouteContext\n\nCLEAR_SITE_DATA_HEADERS = {\"Clear-Site-Data\": '\"cache\"'}\n\n\nclass UpdateRoute(Route):\n    def __init__(\n        self,\n        context: RouteContext,",
+              "truncated": true,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131240123,
+              "end": 1773131240145
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0a4dd58b476f139f0169afd5e7f6148191acaffddc41cab7a3"
+            }
+          },
+          "id": "REDACTED",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db6b1f001jFmj6lPMTQejmy"
+        },
+        {
+          "type": "tool",
+          "callID": "call_bOc3j8cwv5xcFDpwpRfwoP7m",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/cli/utils/basic.py",
+              "offset": 1,
+              "limit": 80
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/cli/utils/basic.py</path>\n<type>file</type>\n<content>1: from pathlib import Path\n2: \n3: import click\n4: \n5: # Static assets bundled inside the installed wheel (built by hatch_build.py).\n6: _BUNDLED_DIST = Path(__file__).parent.parent.parent / \"dashboard\" / \"dist\"\n7: \n8: \n9: def check_astrbot_root(path: str | Path) -> bool:\n10:     \"\"\"Check if the path is an AstrBot root directory\"\"\"\n11:     if not isinstance(path, Path):\n12:         path = Path(path)\n13:     if not path.exists() or not path.is_dir():\n14:         return False\n15:     if not (path / \".astrbot\").exists():\n16:         return False\n17:     return True\n18: \n19: \n20: def get_astrbot_root() -> Path:\n21:     \"\"\"Get the AstrBot root directory path\"\"\"\n22:     return Path.cwd()\n23: \n24: \n25: async def check_dashboard(astrbot_root: Path) -> None:\n26:     \"\"\"Check if the dashboard is installed\"\"\"\n27:     from astrbot.core.config.default import VERSION\n28:     from astrbot.core.utils.io import download_dashboard, get_dashboard_version\n29: \n30:     from .version_comparator import VersionComparator\n31: \n32:     # If the wheel ships bundled dashboard assets, no network download is needed.\n33:     if _BUNDLED_DIST.exists():\n34:         click.echo(\"Dashboard is bundled with the package – skipping download.\")\n35:         return\n36: \n37:     try:\n38:         dashboard_version = await get_dashboard_version()\n39:         match dashboard_version:\n40:             case None:\n41:                 click.echo(\"Dashboard is not installed\")\n42:                 if click.confirm(\n43:                     \"Install dashboard?\",\n44:                     default=True,\n45:                     abort=True,\n46:                 ):\n47:                     click.echo(\"Installing dashboard...\")\n48:                     await download_dashboard(\n49:                         path=\"data/dashboard.zip\",\n50:                         extract_path=str(astrbot_root),\n51:                         version=f\"v{VERSION}\",\n52:                         latest=False,\n53:                     )\n54:                     click.echo(\"Dashboard installed successfully\")\n55: \n56:             case str():\n57:                 if VersionComparator.compare_version(VERSION, dashboard_version) <= 0:\n58:                     click.echo(\"Dashboard is already up to date\")\n59:                     return\n60:                 try:\n61:                     version = dashboard_version.split(\"v\")[1]\n62:                     click.echo(f\"Dashboard version: {version}\")\n63:                     await download_dashboard(\n64:                         path=\"data/dashboard.zip\",\n65:                         extract_path=str(astrbot_root),\n66:                         version=f\"v{VERSION}\",\n67:                         latest=False,\n68:                     )\n69:                 except Exception as e:\n70:                     click.echo(f\"Failed to download dashboard: {e}\")\n71:                     return\n72:     except FileNotFoundError:\n73:         click.echo(\"Initializing dashboard directory...\")\n74:         try:\n75:             await download_dashboard(\n76:                 path=str(astrbot_root / \"dashboard.zip\"),\n77:                 extract_path=str(astrbot_root),\n78:                 version=f\"v{VERSION}\",\n79:                 latest=False,\n80:             )\n\n(Showing lines 1-80 of 84. Use offset=81 to continue.)\n</content>",
+            "title": "astrbot/cli/utils/basic.py",
+            "metadata": {
+              "preview": "from pathlib import Path\n\nimport click\n\n# Static assets bundled inside the installed wheel (built by hatch_build.py).\n_BUNDLED_DIST = Path(__file__).parent.parent.parent / \"dashboard\" / \"dist\"\n\n\ndef check_astrbot_root(path: str | Path) -> bool:\n    \"\"\"Check if the path is an AstrBot root directory\"\"\"\n    if not isinstance(path, Path):\n        path = Path(path)\n    if not path.exists() or not path.is_dir():\n        return False\n    if not (path / \".astrbot\").exists():\n        return False\n    return True\n\n\ndef get_astrbot_root() -> Path:",
+              "truncated": true,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131240126,
+              "end": 1773131240150
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0a4dd58b476f139f0169afd5e7f6208191828799ad54277d1b"
+            }
+          },
+          "id": "prt_cd6db92bd0017zMOpt9LJl6kSM",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db6b1f001jFmj6lPMTQejmy"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 45207,
+            "input": 1248,
+            "output": 183,
+            "reasoning": 14,
+            "cache": {
+              "read": 43776,
+              "write": 0
+            }
+          },
+          "id": "REDACTED",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db6b1f001jFmj6lPMTQejmy"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131240358,
+          "completed": 1773131248475
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 47915,
+          "input": 2683,
+          "output": 176,
+          "reasoning": 36,
+          "cache": {
+            "read": 45056,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6db93a6001HN2Nb1ah4Ns5wu",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6db9b38001JHh9Q9b1tvzLfY",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db93a6001HN2Nb1ah4Ns5wu"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Assessing ship building paths**\n\nI think I need to inspect whether I should build ships using a relative path in the IO helper. I'll confirm if I should get the astrbot path. Okay, it might be safe to proceed with this approach. I’ll need to examine the astrbot_path utilities closely and do a search to gather more information. It feels like a cautious yet necessary step!",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_070545ea97689ae80169afd5ed09348191ba42bf26b257654c",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131245133,
+            "end": 1773131248225
+          },
+          "id": "prt_cd6dba64d0017rISPq769ImzNZ",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db93a6001HN2Nb1ah4Ns5wu"
+        },
+        {
+          "type": "tool",
+          "callID": "call_UjSVtCYxpXFc9wsDw8bBjS4j",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "def get_astrbot_path|def get_astrbot_data_path",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/utils",
+              "output_mode": "content",
+              "head_limit": 40
+            },
+            "output": "Found 2 match(es) in 1 file(s)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/utils/astrbot_path.py\n  21: def get_astrbot_path() -> str:\n  37: def get_astrbot_data_path() -> str:\n",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131248241,
+              "end": 1773131248274
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_070545ea97689ae80169afd5f0204c8191aea4dc6eaf61bdb3"
+            }
+          },
+          "id": "prt_cd6dbb262001xNWUaXnJRRrDCr",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db93a6001HN2Nb1ah4Ns5wu"
+        },
+        {
+          "type": "tool",
+          "callID": "call_SxVkO6VkJcaLzjp7WaOvXcYP",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "_BUNDLED_DIST",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "output_mode": "content",
+              "head_limit": 40
+            },
+            "output": "Found 5 match(es) in 2 file(s)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/cli/utils/basic.py\n  6: _BUNDLED_DIST = Path(__file__).parent.parent.parent / \"dashboard\" / \"dist\"\n  33: if _BUNDLED_DIST.exists():\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/server.py\n  37: _BUNDLED_DIST = Path(__file__).parent / \"dist\"\n  82: elif _BUNDLED_DIST.exists():\n  83: self.data_path = str(_BUNDLED_DIST)\n",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131248253,
+              "end": 1773131248280
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_070545ea97689ae80169afd5f020588191bfb84c54749fe7f8"
+            }
+          },
+          "id": "prt_cd6dbb27c001XbDnn5KiRM65e9",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db93a6001HN2Nb1ah4Ns5wu"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 47915,
+            "input": 2683,
+            "output": 176,
+            "reasoning": 36,
+            "cache": {
+              "read": 45056,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dbb340001iKvYvVpax51TgB",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6db93a6001HN2Nb1ah4Ns5wu"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131248478,
+          "completed": 1773131265437
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 48279,
+          "input": 415,
+          "output": 120,
+          "reasoning": 0,
+          "cache": {
+            "read": 47744,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6dbb35e001Pei1Au4s1mshCq",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dbef0d0014JZjyIvmOdricr",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbb35e001Pei1Au4s1mshCq"
+        },
+        {
+          "type": "tool",
+          "callID": "REDACTED",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/utils/astrbot_path.py",
+              "offset": 1,
+              "limit": 80
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/utils/astrbot_path.py</path>\n<type>file</type>\n<content>1: \"\"\"Astrbot统一路径获取\n2: \n3: 项目路径：固定为源码所在路径\n4: 根目录路径：默认为当前工作目录，可通过环境变量 ASTRBOT_ROOT 指定\n5: 数据目录路径：固定为根目录下的 data 目录\n6: 配置文件路径：固定为数据目录下的 config 目录\n7: 插件目录路径：固定为数据目录下的 plugins 目录\n8: 插件数据目录路径：固定为数据目录下的 plugin_data 目录\n9: T2I 模板目录路径：固定为数据目录下的 t2i_templates 目录\n10: WebChat 数据目录路径：固定为数据目录下的 webchat 目录\n11: 临时文件目录路径：固定为数据目录下的 temp 目录\n12: Skills 目录路径：固定为数据目录下的 skills 目录\n13: 第三方依赖目录路径：固定为数据目录下的 site-packages 目录\n14: \"\"\"\n15: \n16: import os\n17: \n18: from astrbot.core.utils.runtime_env import is_packaged_desktop_runtime\n19: \n20: \n21: def get_astrbot_path() -> str:\n22:     \"\"\"获取Astrbot项目路径\"\"\"\n23:     return os.path.realpath(\n24:         os.path.join(os.path.dirname(os.path.abspath(__file__)), \"../../../\"),\n25:     )\n26: \n27: \n28: def get_astrbot_root() -> str:\n29:     \"\"\"获取Astrbot根目录路径\"\"\"\n30:     if path := os.environ.get(\"ASTRBOT_ROOT\"):\n31:         return os.path.realpath(path)\n32:     if is_packaged_desktop_runtime():\n33:         return os.path.realpath(os.path.join(os.path.expanduser(\"~\"), \".astrbot\"))\n34:     return os.path.realpath(os.getcwd())\n35: \n36: \n37: def get_astrbot_data_path() -> str:\n38:     \"\"\"获取Astrbot数据目录路径\"\"\"\n39:     return os.path.realpath(os.path.join(get_astrbot_root(), \"data\"))\n40: \n41: \n42: def get_astrbot_config_path() -> str:\n43:     \"\"\"获取Astrbot配置文件路径\"\"\"\n44:     return os.path.realpath(os.path.join(get_astrbot_data_path(), \"config\"))\n45: \n46: \n47: def get_astrbot_plugin_path() -> str:\n48:     \"\"\"获取Astrbot插件目录路径\"\"\"\n49:     return os.path.realpath(os.path.join(get_astrbot_data_path(), \"plugins\"))\n50: \n51: \n52: def get_astrbot_plugin_data_path() -> str:\n53:     \"\"\"获取Astrbot插件数据目录路径\"\"\"\n54:     return os.path.realpath(os.path.join(get_astrbot_data_path(), \"plugin_data\"))\n55: \n56: \n57: def get_astrbot_t2i_templates_path() -> str:\n58:     \"\"\"获取Astrbot T2I 模板目录路径\"\"\"\n59:     return os.path.realpath(os.path.join(get_astrbot_data_path(), \"t2i_templates\"))\n60: \n61: \n62: def get_astrbot_webchat_path() -> str:\n63:     \"\"\"获取Astrbot WebChat 数据目录路径\"\"\"\n64:     return os.path.realpath(os.path.join(get_astrbot_data_path(), \"webchat\"))\n65: \n66: \n67: def get_astrbot_temp_path() -> str:\n68:     \"\"\"获取Astrbot临时文件目录路径\"\"\"\n69:     return os.path.realpath(os.path.join(get_astrbot_data_path(), \"temp\"))\n70: \n71: \n72: def get_astrbot_skills_path() -> str:\n73:     \"\"\"获取Astrbot Skills 目录路径\"\"\"\n74:     return os.path.realpath(os.path.join(get_astrbot_data_path(), \"skills\"))\n75: \n76: \n77: def get_astrbot_site_packages_path() -> str:\n78:     \"\"\"获取Astrbot第三方依赖目录路径\"\"\"\n79:     return os.path.realpath(os.path.join(get_astrbot_data_path(), \"site-packages\"))\n80: \n\n(Showing lines 1-80 of 89. Use offset=81 to continue.)\n</content>",
+            "title": "astrbot/core/utils/astrbot_path.py",
+            "metadata": {
+              "preview": "\"\"\"Astrbot统一路径获取\n\n项目路径：固定为源码所在路径\n根目录路径：默认为当前工作目录，可通过环境变量 ASTRBOT_ROOT 指定\n数据目录路径：固定为根目录下的 data 目录\n配置文件路径：固定为数据目录下的 config 目录\n插件目录路径：固定为数据目录下的 plugins 目录\n插件数据目录路径：固定为数据目录下的 plugin_data 目录\nT2I 模板目录路径：固定为数据目录下的 t2i_templates 目录\nWebChat 数据目录路径：固定为数据目录下的 webchat 目录\n临时文件目录路径：固定为数据目录下的 temp 目录\nSkills 目录路径：固定为数据目录下的 skills 目录\n第三方依赖目录路径：固定为数据目录下的 site-packages 目录\n\"\"\"\n\nimport os\n\nfrom astrbot.core.utils.runtime_env import is_packaged_desktop_runtime\n\n",
+              "truncated": true,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131265149,
+              "end": 1773131265177
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0c5c6f6b3cf678dd0169afd60109c88191abcee5a001ec5c55"
+            }
+          },
+          "id": "prt_cd6dbf46e001Bfbh3h6d1OATzv",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbb35e001Pei1Au4s1mshCq"
+        },
+        {
+          "type": "tool",
+          "callID": "call_THOIgnTZcnaggwKdu037aRZg",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/server.py",
+              "offset": 1,
+              "limit": 50
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/server.py</path>\n<type>file</type>\n<content>1: import asyncio\n2: import hashlib\n3: import logging\n4: import os\n5: import socket\n6: from datetime import datetime\n7: from pathlib import Path\n8: from typing import Protocol, cast\n9: \n10: import jwt\n11: import psutil\n12: from flask.json.provider import DefaultJSONProvider\n13: from hypercorn.asyncio import serve\n14: from hypercorn.config import Config as HyperConfig\n15: from quart import Quart, g, jsonify, request\n16: from quart.logging import default_handler\n17: \n18: from astrbot.core import logger\n19: from astrbot.core.config.default import VERSION\n20: from astrbot.core.core_lifecycle import AstrBotCoreLifecycle\n21: from astrbot.core.db import BaseDatabase\n22: from astrbot.core.utils.astrbot_path import get_astrbot_data_path\n23: from astrbot.core.utils.datetime_utils import to_utc_isoformat\n24: from astrbot.core.utils.io import get_local_ip_addresses\n25: \n26: from .routes import *\n27: from .routes.api_key import ALL_OPEN_API_SCOPES\n28: from .routes.backup import BackupRoute\n29: from .routes.live_chat import LiveChatRoute\n30: from .routes.platform import PlatformRoute\n31: from .routes.route import Response, RouteContext\n32: from .routes.session_management import SessionManagementRoute\n33: from .routes.subagent import SubAgentRoute\n34: from .routes.t2i import T2iRoute\n35: \n36: # Static assets shipped inside the wheel (built during `hatch build`).\n37: _BUNDLED_DIST = Path(__file__).parent / \"dist\"\n38: \n39: \n40: class _AddrWithPort(Protocol):\n41:     port: int\n42: \n43: \n44: APP: Quart\n45: \n46: \n47: def _parse_env_bool(value: str | None, default: bool) -> bool:\n48:     if value is None:\n49:         return default\n50:     return value.strip().lower() in {\"1\", \"true\", \"yes\", \"on\"}\n\n(Showing lines 1-50 of 425. Use offset=51 to continue.)\n</content>",
+            "title": "astrbot/dashboard/server.py",
+            "metadata": {
+              "preview": "import asyncio\nimport hashlib\nimport logging\nimport os\nimport socket\nfrom datetime import datetime\nfrom pathlib import Path\nfrom typing import Protocol, cast\n\nimport jwt\nimport psutil\nfrom flask.json.provider import DefaultJSONProvider\nfrom hypercorn.asyncio import serve\nfrom hypercorn.config import Config as HyperConfig\nfrom quart import Quart, g, jsonify, request\nfrom quart.logging import default_handler\n\nfrom astrbot.core import logger\nfrom astrbot.core.config.default import VERSION\nfrom astrbot.core.core_lifecycle import AstrBotCoreLifecycle",
+              "truncated": true,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131265164,
+              "end": 1773131265184
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0c5c6f6b3cf678dd0169afd60109d48191a35a5b61d78eea47"
+            }
+          },
+          "id": "prt_cd6dbf48a0015Eu6BC6Q5HT2j4",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbb35e001Pei1Au4s1mshCq"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 48279,
+            "input": 415,
+            "output": 120,
+            "reasoning": 0,
+            "cache": {
+              "read": 47744,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dbf57d001dcXUiHBabATMop",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbb35e001Pei1Au4s1mshCq"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131265441,
+          "completed": 1773131274032
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 50068,
+          "input": 1647,
+          "output": 293,
+          "reasoning": 150,
+          "cache": {
+            "read": 48128,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6dbf5a10017S6nCd16Rkntc4",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dbfd9e0012za10MK0a8Fggq",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbf5a10017S6nCd16Rkntc4"
+        },
+        {
+          "type": "reasoning",
+          "text": "",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_07759882178dc2b50169afd6045cac81918a5b575b0dabde79",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131268471,
+            "end": 1773131273764
+          },
+          "id": "prt_cd6dc0177001GjPvUtj30pw46E",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbf5a10017S6nCd16Rkntc4"
+        },
+        {
+          "type": "tool",
+          "callID": "call_CigeGN43WDcwTgTQLWXtG2wm",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "assets/version|version_file|write_text\\(|version\\)$",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "output_mode": "content",
+              "head_limit": 60
+            },
+            "output": "Found 60 match(es) in 17 file(s)\n[Output truncated due to size limit]\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_computer_skill_sync.py\n  85: skill_dir.joinpath(\"SKILL.md\").write_text(\"# demo\", encoding=\"utf-8\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_quoted_message_parser.py\n  341: non_image_file.write_text(\"not an image\", encoding=\"utf-8\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_skill_metadata_enrichment.py\n  145: skill_dir.joinpath(\"SKILL.md\").write_text(\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/conftest.py\n  153: config_path.write_text(json.dumps(default_config, indent=2), encoding=\"utf-8\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/unit/test_computer.py\n  133: test_file.write_text(\"test\")\n  208: test_file.write_text(\"content\")\n  316: test_path.write_text(\"test content\")\n  365: test_path.write_text(\"test\")\n  391: (test_dir / \"file.txt\").write_text(\"test\")\n  416: (tmp_path / \"file1.txt\").write_text(\"content1\")\n  417: (tmp_path / \"file2.txt\").write_text(\"content2\")\n  418: (tmp_path / \".hidden\").write_text(\"hidden\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_skill_manager_sandbox_cache.py\n  13: skill_dir.joinpath(\"SKILL.md\").write_text(\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_computer_config.py\n  32: path.write_text(\n  94: cred_file.write_text(\"not valid json {{{\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/fixtures/helpers.py\n  462: (plugin_dir / \"metadata.yaml\").write_text(\n  470: (plugin_dir / \"main.py\").write_text(main_code, encoding=\"utf-8\")\n  474: (plugin_dir / \"requirements.txt\").write_text(\n  480: (plugin_dir / \"README.md\").write_text(\n  581: (plugin_dir / \".updated\").write_text(\"ok\", encoding=\"utf-8\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_plugin_manager.py\n  48: (plugin_dir / \"metadata.yaml\").write_text(\n  61: (plugin_dir / \"main.py\").write_text(\n  90: (data_dir / \"__init__.py\").write_text(\"\", encoding=\"utf-8\")\n  91: (plugin_dir / \"__init__.py\").write_text(\"\", encoding=\"utf-8\")\n  153: (plugin_path / \".updated\").write_text(\"ok\", encoding=\"utf-8\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_backup.py\n  53: config_path.write_text(json.dumps({\"test\": \"config\"}))\n  620: invalid_zip.write_text(\"not a zip file\")\n  873: invalid_zip.write_text(\"not a zip file\")\n  984: result = importer._check_version_compatibility(minor_diff_version)\n  1053: config_path.write_text(json.dumps({\"setting\": \"value\"}))\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/cli/commands/cmd_conf.py\n  90: config_path.write_text(\n  105: config_path.write_text(\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/dashboard/src/components/shared/T2ITemplateEditor.vue\n  308: content = content.replace(/\\{\\{\\s*version\\s*\\}\\}/g, previewData.value.version)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/skills/neo_skill_sync.py\n  295: skill_md_path.write_text(normalized_markdown, encoding=\"utf-8\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/computer/computer_client.py\n  171: managed_file.write_text(\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/scripts/sync_docs_to_wiki.py\n  565: manifest_path.write_text(content, encoding=\"utf-8\")\n  570: path.write_text(content, encoding=\"utf-8\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/scripts/upload_doc_images_to_r2.py\n  274: backup_path.write_text(text, encoding=\"utf-8\")\n  275: md_file.write_text(updated, encoding=\"utf-8\")\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/tests/test_sync_docs_to_wiki.py\n  147: (source_root / \"zh\" / \"index.md\").write_text(\n  151: (source_root / \"zh\" / \"guide(test).md\").write_text(\n  173: (source_root / \"zh\" / \"use\" / \"guide.md\").write_text(\n  196: (source_root / \"zh\" / \"index.md\").write_text(\"# Home\\n\", encoding=\"utf-8\")\n  197: (source_root / \"zh\" / \"guide.md\").write_text(\"# Guide\\n\", encoding=\"utf-8\")\n  217: (source_root / \"zh\" / \"index.md\").write_text(\"# Home\\n\", encoding=\"utf-8\")\n  218: (source_root / \"zh\" / \"guide.md\").write_text(\"# Guide\\n\", encoding=\"utf-8\")\n  238: (source_root / \"zh\" / \"index.md\").write_text(\"# Home\\n\", encoding=\"utf-8\")\n  239: (source_root / \"zh\" / \"deploy\" / \"guide.md\").write_text(\n  257: (source_root / \"zh\" / \"providers\" / \"dify.md\").write_text(\n  261: (source_root / \"zh\" / \"agent-runners\" / \"dify.md\").write_text(\n  319: (source_root / \"zh\" / \"index.md\").write_text(\n  339: (source_root / \"zh\" / \"agent-runners\" / \"guide.md\").write_text(\n  362: (source_root / \"zh\" / \"index.md\").write_text(\n  367: (source_root / \"zh\" / \"deploy\" / \"guide.md\").write_text(\n  371: (source_root / \"en\" / \"index.md\").write_text(\n  376: (source_root / \"en\" / \"deploy\" / \"guide.md\").write_text(\n  402: (source_root / \"zh\" / \"index.md\").write_text(\n  405: (source_root / \"en\" / \"index.md\").write_text(\n  411: handwritten.write_text(\"# Keep me\\n\", encoding=\"utf-8\")\n  424: (source_root / \"zh\" / \"index.md\").write_text(\n",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131273797,
+              "end": 1773131273822
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_07759882178dc2b50169afd609a6348191ae191ea690ffe490"
+            }
+          },
+          "id": "prt_cd6dc162d001yYsa58PMgTnH16",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbf5a10017S6nCd16Rkntc4"
+        },
+        {
+          "type": "tool",
+          "callID": "REDACTED",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "dashboard/dist|dist.zip|hatch build|bundled dashboard",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "output_mode": "content",
+              "head_limit": 80
+            },
+            "output": "Found 20 match(es) in 12 file(s)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/pyproject.toml\n  117: # Include bundled dashboard dist even though it is not tracked by VCS.\n  119: artifacts = [\"astrbot/dashboard/dist/**\"]\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/scripts/hatch_build.py\n  12: 2. Copies the resulting `dashboard/dist/` tree into\n  13: `astrbot/dashboard/dist/` so the static assets are shipped\n  66: \"[hatch_build] dashboard/dist not found after build – skipping copy.\",\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/main.py\n  92: \"开始下载管理面板文件...高峰期（晚上）可能导致较慢的速度。如多次下载失败，请前往 https://github.com/AstrBotDevs/AstrBot/releases/latest 下载 dist.zip，并将其中的 dist 文件夹解压至 data 目录下。\",\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/cli/utils/basic.py\n  32: # If the wheel ships bundled dashboard assets, no network download is needed.\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/en/use/webui.md\n  71: Admin panel files are located in the data/dist directory. If you need to manually replace them, download `dist.zip` from https://github.com/AstrBotDevs/AstrBot/releases/ and extract it to the data directory.\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/en/faq.md\n  7: Download `dist.zip` from the [release](https://github.com/AstrBotDevs/AstrBot/releases) page, extract it, and move it to `AstrBot/data`. If it still doesn't work, try restarting your computer (based on community feedback).\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/utils/io.py\n  264: dashboard_release_url = f\"https://astrbot-registry.soulter.top/download/astrbot-dashboard/{ver_name}/dist.zip\"\n  276: dashboard_release_url = \"https://github.com/AstrBotDevs/AstrBot/releases/latest/download/dist.zip\"\n  278: dashboard_release_url = f\"https://github.com/AstrBotDevs/AstrBot/releases/download/{version}/dist.zip\"\n  287: url = f\"https://github.com/AstrBotDevs/astrbot-release-harbour/releases/download/release-{version}/dist.zip\"\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/en/deploy/astrbot/launcher.md\n  72: > Download `dist.zip` from [release](https://github.com/AstrBotDevs/AstrBot/releases), extract it into `AstrBot/data`, then restart the computer if needed.\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/zh/use/webui.md\n  71: 管理面板文件在 data/dist 目录下。如果需要手动替换，请在 https://github.com/AstrBotDevs/AstrBot/releases/ 下载 `dist.zip` 然后解压到 data 目录下。\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/zh/faq.md\n  7: 在 [release](https://github.com/AstrBotDevs/AstrBot/releases) 页面下载 `dist.zip`，解压拖到 `AstrBot/data` 下。还不行请重启电脑（来自群里的反馈）\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/server.py\n  36: # Static assets shipped inside the wheel (built during `hatch build`).\n  75: # 3. astrbot/dashboard/dist/ (bundled with the wheel)\n  84: logger.info(\"Using bundled dashboard dist: %s\", self.data_path)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/docs/zh/deploy/astrbot/launcher.md\n  70: > 在 [release](https://github.com/AstrBotDevs/AstrBot/releases) 页面下载dist.zip，解压拖到 AstrBot/data 下。还不行请重启电脑（来自群里的反馈）\n",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131273804,
+              "end": 1773131273829
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_07759882178dc2b50169afd609a6408191b8006189bad601e7"
+            }
+          },
+          "id": "prt_cd6dc1646001jGQGMlrBbrZAk2",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbf5a10017S6nCd16Rkntc4"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 50068,
+            "input": 1647,
+            "output": 293,
+            "reasoning": 150,
+            "cache": {
+              "read": 48128,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dc1717001tLxAmDWWPE35zM",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dbf5a10017S6nCd16Rkntc4"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131274035,
+          "completed": 1773131282100
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 52863,
+          "input": 2814,
+          "output": 129,
+          "reasoning": 13,
+          "cache": {
+            "read": 49920,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6dc1733001lTM5nyDcXyDqDX",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dc1e96001aPYiYD61O2pW7O",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc1733001lTM5nyDcXyDqDX"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Inspecting file inclusion**\n\nI need to take a closer look at the hatch_build and possibly check the version file inclusion. It's important to understand if everything is correctly set up, so I can ensure that the build process runs smoothly. I'll focus on identifying any discrepancies or issues that might be causing problems. Okay, let's get started on examining that! It's a small detail but could end up being quite significant.",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_06ddcabc7c6eaed60169afd60f58a08191a112273d087bc13b",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131279434,
+            "end": 1773131281805
+          },
+          "id": "prt_cd6dc2c4a001ujJzNPEfarTxHz",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc1733001lTM5nyDcXyDqDX"
+        },
+        {
+          "type": "tool",
+          "callID": "REDACTED",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/scripts/hatch_build.py",
+              "offset": 1,
+              "limit": 140
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/scripts/hatch_build.py</path>\n<type>file</type>\n<content>1: \"\"\"\n2: Custom Hatchling build hook.\n3: \n4: Only runs when the environment variable ASTRBOT_BUILD_DASHBOARD=1 is set,\n5: so that `uv sync` / editable installs are never affected.\n6: \n7: Usage:\n8:     ASTRBOT_BUILD_DASHBOARD=1 uv build\n9: \n10: When enabled, this hook:\n11: 1. Runs `npm run build` inside the `dashboard/` directory.\n12: 2. Copies the resulting `dashboard/dist/` tree into\n13:    `astrbot/dashboard/dist/` so the static assets are shipped\n14:    inside the Python wheel.\n15: \"\"\"\n16: \n17: import os\n18: import shutil\n19: import subprocess\n20: import sys\n21: from pathlib import Path\n22: \n23: from hatchling.builders.hooks.plugin.interface import BuildHookInterface\n24: \n25: \n26: class CustomBuildHook(BuildHookInterface):\n27:     PLUGIN_NAME = \"custom\"\n28: \n29:     def initialize(self, version: str, build_data: dict) -> None:\n30:         # Only run when explicitly requested (e.g. during CI / release builds).\n31:         # This prevents `uv sync` / editable installs from triggering npm.\n32:         if os.environ.get(\"ASTRBOT_BUILD_DASHBOARD\", \"\").strip() != \"1\":\n33:             return\n34: \n35:         root = Path(self.root)\n36:         dashboard_src = root / \"dashboard\"\n37:         dist_src = dashboard_src / \"dist\"\n38:         dist_target = root / \"astrbot\" / \"dashboard\" / \"dist\"\n39: \n40:         if not dashboard_src.exists():\n41:             print(\n42:                 \"[hatch_build] 'dashboard/' directory not found – skipping dashboard build.\",\n43:                 file=sys.stderr,\n44:             )\n45:             return\n46: \n47:         # ── Install Node dependencies if node_modules is absent ─────────────\n48:         if not (dashboard_src / \"node_modules\").exists():\n49:             print(\"[hatch_build] Installing dashboard Node dependencies...\")\n50:             subprocess.run(\n51:                 [\"npm\", \"install\"],\n52:                 cwd=dashboard_src,\n53:                 check=True,\n54:             )\n55: \n56:         # ── Build the Vue/Vite dashboard ──────────────────────────────────────\n57:         print(\"[hatch_build] Building Vue dashboard (npm run build)...\")\n58:         subprocess.run(\n59:             [\"npm\", \"run\", \"build\"],\n60:             cwd=dashboard_src,\n61:             check=True,\n62:         )\n63: \n64:         if not dist_src.exists():\n65:             print(\n66:                 \"[hatch_build] dashboard/dist not found after build – skipping copy.\",\n67:                 file=sys.stderr,\n68:             )\n69:             return\n70: \n71:         # ── Copy into the Python package tree ────────────────────────────────\n72:         if dist_target.exists():\n73:             shutil.rmtree(dist_target)\n74:         shutil.copytree(dist_src, dist_target)\n75:         print(f\"[hatch_build] Dashboard dist copied → {dist_target.relative_to(root)}\")\n\n(End of file - total 75 lines)\n</content>",
+            "title": "scripts/hatch_build.py",
+            "metadata": {
+              "preview": "\"\"\"\nCustom Hatchling build hook.\n\nOnly runs when the environment variable ASTRBOT_BUILD_DASHBOARD=1 is set,\nso that `uv sync` / editable installs are never affected.\n\nUsage:\n    ASTRBOT_BUILD_DASHBOARD=1 uv build\n\nWhen enabled, this hook:\n1. Runs `npm run build` inside the `dashboard/` directory.\n2. Copies the resulting `dashboard/dist/` tree into\n   `astrbot/dashboard/dist/` so the static assets are shipped\n   inside the Python wheel.\n\"\"\"\n\nimport os\nimport shutil\nimport subprocess\nimport sys",
+              "truncated": false,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131281836,
+              "end": 1773131281849
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_06ddcabc7c6eaed60169afd611b1e88191b8b1a5aea1e2b16c"
+            }
+          },
+          "id": "prt_cd6dc358e001Ff78uvOtYhq8Nd",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc1733001lTM5nyDcXyDqDX"
+        },
+        {
+          "type": "tool",
+          "callID": "call_tsMaraASjKGgUXsqIj4W2YXJ",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/pyproject.toml",
+              "offset": 108,
+              "limit": 20
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/pyproject.toml</path>\n<type>file</type>\n<content>108: pythonVersion = \"3.10\"\n109: reportMissingTypeStubs = false\n110: reportMissingImports = false\n111: include = [\"astrbot\"]\n112: exclude = [\"dashboard\", \"node_modules\", \"dist\", \"data\", \"tests\"]\n113: \n114: [tool.hatch.metadata]\n115: allow-direct-references = true\n116: \n117: # Include bundled dashboard dist even though it is not tracked by VCS.\n118: [tool.hatch.build.targets.wheel]\n119: artifacts = [\"astrbot/dashboard/dist/**\"]\n120: \n121: # Custom build hook: builds the Vue dashboard and copies dist into the package.\n122: [tool.hatch.build.hooks.custom]\n123: path = \"scripts/hatch_build.py\"\n124: \n125: [build-system]\n126: requires = [\"hatchling\"]\n127: build-backend = \"hatchling.build\"\n\n(End of file - total 127 lines)\n</content>",
+            "title": "pyproject.toml",
+            "metadata": {
+              "preview": "pythonVersion = \"3.10\"\nreportMissingTypeStubs = false\nreportMissingImports = false\ninclude = [\"astrbot\"]\nexclude = [\"dashboard\", \"node_modules\", \"dist\", \"data\", \"tests\"]\n\n[tool.hatch.metadata]\nallow-direct-references = true\n\n# Include bundled dashboard dist even though it is not tracked by VCS.\n[tool.hatch.build.targets.wheel]\nartifacts = [\"astrbot/dashboard/dist/**\"]\n\n# Custom build hook: builds the Vue dashboard and copies dist into the package.\n[tool.hatch.build.hooks.custom]\npath = \"scripts/hatch_build.py\"\n\n[build-system]\nrequires = [\"hatchling\"]\nbuild-backend = \"hatchling.build\"",
+              "truncated": false,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131281880,
+              "end": 1773131281895
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_06ddcabc7c6eaed60169afd611b1f881919cd5156ec79ebe0c"
+            }
+          },
+          "id": "prt_cd6dc35ad001tjO3xiD3yVWbZX",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc1733001lTM5nyDcXyDqDX"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 52863,
+            "input": 2814,
+            "output": 129,
+            "reasoning": 13,
+            "cache": {
+              "read": 49920,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dc369b001ei2daK1p5iI8H5",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc1733001lTM5nyDcXyDqDX"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131282103,
+          "completed": 1773131290387
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 54039,
+          "input": 1144,
+          "output": 159,
+          "reasoning": 24,
+          "cache": {
+            "read": 52736,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6dc36b7001CJMPI1un0wRe3D",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dc3e3f0016n3ZNoDq9aeZDQ",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc36b7001CJMPI1un0wRe3D"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Inspecting dashboard version**\n\nI think I need to inspect the dashboard’s build by checking the version file. I’ll search for “assets/version” and see what I can find. It might make sense to use grep to narrow down my search, perhaps focusing on the dashboard configuration to find exactly what I need. I just want to be thorough and make sure I get it right!",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_0d3d2c06ecf4552c0169afd6173040819195d7d7739e912805",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131287302,
+            "end": 1773131290120
+          },
+          "id": "prt_cd6dc4b06001BnkI2y6ZemlbgU",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc36b7001CJMPI1un0wRe3D"
+        },
+        {
+          "type": "tool",
+          "callID": "call_Mw7ttxfbLXnzU1EzH8gxPcaL",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "assets/version",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+              "output_mode": "content",
+              "head_limit": 40
+            },
+            "output": "No matches found",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131290158,
+              "end": 1773131290182
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0d3d2c06ecf4552c0169afd61a069c8191adab67efd82529e3"
+            }
+          },
+          "id": "prt_cd6dc5608001cDVyjqmvd5jTwo",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc36b7001CJMPI1un0wRe3D"
+        },
+        {
+          "type": "tool",
+          "callID": "call_sSjk8Au2uawO0fsf9XO41Uej",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "version\\s*[:=].*VERSION|write.*version|version file",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/dashboard",
+              "output_mode": "content",
+              "head_limit": 80
+            },
+            "output": "No matches found",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131290195,
+              "end": 1773131290213
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0d3d2c06ecf4552c0169afd61a06a88191952f4efd684d54ca"
+            }
+          },
+          "id": "prt_cd6dc562f001BJD9TT85LRoYiL",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc36b7001CJMPI1un0wRe3D"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 54039,
+            "input": 1144,
+            "output": 159,
+            "reasoning": 24,
+            "cache": {
+              "read": 52736,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dc56f9001Wxt02y9dkeq7BB",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc36b7001CJMPI1un0wRe3D"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131290389,
+          "completed": 1773131300594
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 54250,
+          "input": 177,
+          "output": 185,
+          "reasoning": 83,
+          "cache": {
+            "read": 53888,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6dc5715001tmO2YKk0OMfk1q",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dc6000001ddIF6rFohMeE6K",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc5715001tmO2YKk0OMfk1q"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Exploring version paths**\n\nI'm thinking about the output build and how I might need to check if the generated file is separate from the source. Maybe I should search for \"current_version,\" even if it seems a bit irrelevant. Inspecting the package artifact could be useful, though it might not be in the repo. I wonder if I could use glob to find dist files. The user says the build passed, so I’ll check actual paths to see if there are any version files present.",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_02e665938ac69e0c0169afd61fffd48191be803ee2a221d82a",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131296082,
+            "end": 1773131300330
+          },
+          "id": "prt_cd6dc6d52001kuFqvRXY6vqcWd",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc5715001tmO2YKk0OMfk1q"
+        },
+        {
+          "type": "tool",
+          "callID": "REDACTED",
+          "tool": "glob",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "dashboard/dist/**",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+            },
+            "output": "No files found",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131300356,
+              "end": 1773131300382
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_02e665938ac69e0c0169afd6243d8481919cada9544d2e2638"
+            }
+          },
+          "id": "prt_cd6dc7dec001w1y4YyExMwYn3C",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc5715001tmO2YKk0OMfk1q"
+        },
+        {
+          "type": "tool",
+          "callID": "call_DAs2Oq12vAHFkGW5w1CyCRv7",
+          "tool": "glob",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "astrbot/dashboard/dist/**",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+            },
+            "output": "No files found",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131300358,
+              "end": 1773131300389
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_02e665938ac69e0c0169afd6243d90819199518eb169497fdc"
+            }
+          },
+          "id": "prt_cd6dc7e05001NBFiyry4KglRmw",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc5715001tmO2YKk0OMfk1q"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 54250,
+            "input": 177,
+            "output": 185,
+            "reasoning": 83,
+            "cache": {
+              "read": 53888,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dc7edf001f1049ksGwwXFoC",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc5715001tmO2YKk0OMfk1q"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131300597,
+          "completed": 1773131308677
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 54489,
+          "input": 130,
+          "output": 215,
+          "reasoning": 74,
+          "cache": {
+            "read": 54144,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "REDACTED",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dc86dd001SdDwcSVpBO7V5z",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Inspecting build results**\n\nI noticed there aren't any distinct checks in the current repository, but it seems like the build might be generated somewhere else that’s been cleaned. No worries! I need to check the tests and build results. The user mentioned they've already passed, so there's no need to rerun them. However, I shouldn’t ignore the results provided. I'll also look to see if there are any tests for the get_dashboard_version fallback itself.",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_01df47ca8cf4edcb0169afd627d85c81918b5647ab40b3115c",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131303933,
+            "end": 1773131308358
+          },
+          "id": "prt_cd6dc8bfd0015hI6Nk10168xlI",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "tool",
+          "callID": "call_JuGYD2p1QeQMpCJrjHswpeSH",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "get_dashboard_version|get_dashboard_dist_path|check_dashboard_files",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests",
+              "output_mode": "content",
+              "head_limit": 120
+            },
+            "output": "Found 21 match(es) in 2 file(s)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_dashboard.py\n  292: async def mock_get_dashboard_version(*args, **kwargs):\n  304: \"astrbot.dashboard.routes.update.get_dashboard_version\",\n  305: mock_get_dashboard_version,\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_main.py\n  11: from main import check_dashboard_files, check_env\n  97: async def test_check_dashboard_files_not_exists(monkeypatch):\n  99: monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: None)\n  102: await check_dashboard_files()\n  107: async def test_check_dashboard_files_exists_and_version_match(monkeypatch):\n  112: # Mock get_dashboard_version to return the current version\n  113: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  120: await check_dashboard_files()\n  126: async def test_check_dashboard_files_uses_bundled_dist_without_download(monkeypatch):\n  128: monkeypatch.setattr(\"main.get_dashboard_dist_path\", lambda: bundled_dir)\n  130: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  136: result = await check_dashboard_files()\n  142: async def test_check_dashboard_files_exists_but_version_mismatch(monkeypatch):\n  146: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  150: await check_dashboard_files()\n  157: async def test_check_dashboard_files_with_webui_dir_arg(monkeypatch):\n  163: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  164: result = await check_dashboard_files(webui_dir=valid_dir)\n",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131308379,
+              "end": 1773131308398
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_01df47ca8cf4edcb0169afd62c3ed881918ff841ef26ff5355"
+            }
+          },
+          "id": "prt_cd6dc9d47001JwEKJTobkPgNPZ",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "tool",
+          "callID": "call_OSEVFjBW5dh5JI0mQtcQ5Gel",
+          "tool": "grep",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "version\"\\)|assets\",\"version|FileNotFoundError",
+              "path": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests",
+              "output_mode": "content",
+              "head_limit": 80
+            },
+            "output": "Found 8 match(es) in 3 file(s)\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/unit/test_computer.py\n  464: # Should raise FileNotFoundError\n  465: with pytest.raises(FileNotFoundError):\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/test_main.py\n  113: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  130: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  146: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n  163: with mock.patch(\"main.get_dashboard_version\") as mock_get_version:\n\n/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/tests/fixtures/__init__.py\n  38: raise FileNotFoundError(f\"Fixture not found: {filepath}\")\n  46: raise FileNotFoundError(f\"Fixture not found: {filepath}\")\n",
+            "title": "",
+            "metadata": {
+              "truncated": false
+            },
+            "time": {
+              "start": 1773131308440,
+              "end": 1773131308456
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_01df47ca8cf4edcb0169afd62c3ee881918a1fcef7f22b79fb"
+            }
+          },
+          "id": "prt_cd6dc9d62001nEwNC3XqjPsP6b",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 54489,
+            "input": 130,
+            "output": 215,
+            "reasoning": 74,
+            "cache": {
+              "read": 54144,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dc9e6e001t2cLrI06oZmOEe",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "REDACTED"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131308680,
+          "completed": 1773131328829
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 55767,
+          "input": 727,
+          "output": 640,
+          "reasoning": 585,
+          "cache": {
+            "read": 54400,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6dc9e88001R0bNfRtubo6crX",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dca669001OIX7nYRWvCQtbr",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc9e88001R0bNfRtubo6crX"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Evaluating path management risks**\n\nI’m wondering if serving static files is acceptable if they’re incomplete. There’s already a risk in the data/dist path, and new changes to bundled files could extend this issue. I think I should mention that a missing version file needs to be tested, but there’s no immediate bug unless it’s required for freshness validation.  \n\nRegarding path precedence, server.py duplicates precedence with a separate _BUNDLED_DIST, leading to inconsistencies. The task doesn't allow for large refactoring, so maybe I should suggest a small follow-up for server consistency and test to ensure correctness.",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_0f6b11c85160b21f0169afd62f52d08191b01b8cad9bdb7441"
+            }
+          },
+          "time": {
+            "start": 1773131311654,
+            "end": 1773131324953
+          },
+          "id": "prt_cd6dcaa26001ErjJRZqiDEahOC",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc9e88001R0bNfRtubo6crX"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Assessing test coverage and safety**\n\nI’m noticing that existing tests don’t check the returned path or the precedence between data and bundled files. There’s also no direct test for functions like get_dashboard_dist_path or the missing-version fallback, so I should suggest follow-up tests to cover these aspects.  \n\nNow, evaluating the safety of returning the bundled distribution, the server’s static_folder is set to that path, which seems read-only. If the user updates the dashboard via API, it could serve the old bundled path until a restart, but could updating data/dist in place require no restart?",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_0f6b11c85160b21f0169afd62f52d08191b01b8cad9bdb7441"
+            }
+          },
+          "time": {
+            "start": 1773131324955,
+            "end": 1773131327330
+          },
+          "id": "prt_cd6dcde1b001LIBl6MhHD078c4",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc9e88001R0bNfRtubo6crX"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Identifying potential bugs**\n\nI'm noticing an issue with the bundled path being explicit after the update dashboard route. It seems like downloads might be going to data/dist, while the server continues to use the bundled path since self.data_path is set at startup to the specific `webui_dir`. This feels like a subtle runtime bug! I should check the update route to see if it only downloads and sends a message without restarting. Let's inspect the update_dashboard handler for clarity.",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_0f6b11c85160b21f0169afd62f52d08191b01b8cad9bdb7441",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131327331,
+            "end": 1773131328478
+          },
+          "id": "prt_cd6dce763001jLcCjnP97TgAuy",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc9e88001R0bNfRtubo6crX"
+        },
+        {
+          "type": "tool",
+          "callID": "REDACTED",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/routes/update.py",
+              "offset": 120,
+              "limit": 70
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/dashboard/routes/update.py</path>\n<type>file</type>\n<content>120: \n121:             if reboot:\n122:                 await self.core_lifecycle.restart()\n123:                 ret = (\n124:                     Response()\n125:                     .ok(None, \"更新成功，AstrBot 将在 2 秒内全量重启以应用新的代码。\")\n126:                     .__dict__\n127:                 )\n128:                 return ret, 200, CLEAR_SITE_DATA_HEADERS\n129:             ret = (\n130:                 Response()\n131:                 .ok(None, \"更新成功，AstrBot 将在下次启动时应用新的代码。\")\n132:                 .__dict__\n133:             )\n134:             return ret, 200, CLEAR_SITE_DATA_HEADERS\n135:         except Exception as e:\n136:             logger.error(f\"/api/update_project: {traceback.format_exc()}\")\n137:             return Response().error(e.__str__()).__dict__\n138: \n139:     async def update_dashboard(self):\n140:         try:\n141:             try:\n142:                 await download_dashboard(version=f\"v{VERSION}\", latest=False)\n143:             except Exception as e:\n144:                 logger.error(f\"下载管理面板文件失败: {e}。\")\n145:                 return Response().error(f\"下载管理面板文件失败: {e}\").__dict__\n146:             ret = Response().ok(None, \"更新成功。刷新页面即可应用新版本面板。\").__dict__\n147:             return ret, 200, CLEAR_SITE_DATA_HEADERS\n148:         except Exception as e:\n149:             logger.error(f\"/api/update_dashboard: {traceback.format_exc()}\")\n150:             return Response().error(e.__str__()).__dict__\n151: \n152:     async def install_pip_package(self):\n153:         if DEMO_MODE:\n154:             return (\n155:                 Response()\n156:                 .error(\"You are not permitted to do this operation in demo mode\")\n157:                 .__dict__\n158:             )\n159: \n160:         data = await request.json\n161:         package = data.get(\"package\", \"\")\n162:         mirror = data.get(\"mirror\", None)\n163:         if not package:\n164:             return Response().error(\"缺少参数 package 或不合法。\").__dict__\n165:         try:\n166:             await pip_installer.install(package, mirror=mirror)\n167:             return Response().ok(None, \"安装成功。\").__dict__\n168:         except Exception as e:\n169:             logger.error(f\"/api/update_pip: {traceback.format_exc()}\")\n170:             return Response().error(e.__str__()).__dict__\n\n(End of file - total 170 lines)\n</content>",
+            "title": "astrbot/dashboard/routes/update.py",
+            "metadata": {
+              "preview": "\n            if reboot:\n                await self.core_lifecycle.restart()\n                ret = (\n                    Response()\n                    .ok(None, \"更新成功，AstrBot 将在 2 秒内全量重启以应用新的代码。\")\n                    .__dict__\n                )\n                return ret, 200, CLEAR_SITE_DATA_HEADERS\n            ret = (\n                Response()\n                .ok(None, \"更新成功，AstrBot 将在下次启动时应用新的代码。\")\n                .__dict__\n            )\n            return ret, 200, CLEAR_SITE_DATA_HEADERS\n        except Exception as e:\n            logger.error(f\"/api/update_project: {traceback.format_exc()}\")\n            return Response().error(e.__str__()).__dict__\n\n    async def update_dashboard(self):",
+              "truncated": false,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131328621,
+              "end": 1773131328638
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_0f6b11c85160b21f0169afd640554481919fac17ae72603b35"
+            }
+          },
+          "id": "prt_cd6dcebe6001bcp8bTTHgg2FBn",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc9e88001R0bNfRtubo6crX"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 55767,
+            "input": 727,
+            "output": 640,
+            "reasoning": 585,
+            "cache": {
+              "read": 54400,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dced1f001tHT9Mv1J41udSD",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dc9e88001R0bNfRtubo6crX"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131328835,
+          "completed": 1773131334487
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 56515,
+          "input": 709,
+          "output": 126,
+          "reasoning": 70,
+          "cache": {
+            "read": 55680,
+            "write": 0
+          }
+        },
+        "finish": "tool-calls",
+        "id": "msg_cd6dced430015oNyk6LJCzPAYP",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dcf4a5001Od4gI7GXaqHrQR",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dced430015oNyk6LJCzPAYP"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Inspecting dashboard updates**\n\nI’m looking at the `update_dashboard` function, which seems to say that refreshing the page applies a new version. If the server uses a bundled path from `check_dashboard_files`, refreshing might not use the downloaded data because the server's `static_folder` stays at that bundled path. Unless the dashboard server resolves things internally, that could be an issue. My next step is to inspect the initial loader to clarify how `webui_dir` gets passed through the system.",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_094e51da55a177930169afd642ef9c8191acbf9a3e4375b37a",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131331024,
+            "end": 1773131334132
+          },
+          "id": "prt_cd6dcf5d0001Ave0CdMkNx7lSm",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dced430015oNyk6LJCzPAYP"
+        },
+        {
+          "type": "tool",
+          "callID": "call_yfu48eMwHNTobdHyxodZpkO8",
+          "tool": "read",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/initial_loader.py",
+              "offset": 1,
+              "limit": 70
+            },
+            "output": "<path>/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405/astrbot/core/initial_loader.py</path>\n<type>file</type>\n<content>1: \"\"\"AstrBot 启动器，负责初始化和启动核心组件和仪表板服务器。\n2: \n3: 工作流程:\n4: 1. 初始化核心生命周期, 传递数据库和日志代理实例到核心生命周期\n5: 2. 运行核心生命周期任务和仪表板服务器\n6: \"\"\"\n7: \n8: import asyncio\n9: import traceback\n10: \n11: from astrbot.core import LogBroker, logger\n12: from astrbot.core.core_lifecycle import AstrBotCoreLifecycle\n13: from astrbot.core.db import BaseDatabase\n14: from astrbot.dashboard.server import AstrBotDashboard\n15: \n16: \n17: class InitialLoader:\n18:     \"\"\"AstrBot 启动器，负责初始化和启动核心组件和仪表板服务器。\"\"\"\n19: \n20:     def __init__(self, db: BaseDatabase, log_broker: LogBroker) -> None:\n21:         self.db = db\n22:         self.logger = logger\n23:         self.log_broker = log_broker\n24:         self.webui_dir: str | None = None\n25: \n26:     async def start(self) -> None:\n27:         core_lifecycle = AstrBotCoreLifecycle(self.log_broker, self.db)\n28: \n29:         try:\n30:             await core_lifecycle.initialize()\n31:         except Exception as e:\n32:             logger.critical(traceback.format_exc())\n33:             logger.critical(f\"😭 初始化 AstrBot 失败：{e} !!!\")\n34:             return\n35: \n36:         core_task = core_lifecycle.start()\n37: \n38:         webui_dir = self.webui_dir\n39: \n40:         self.dashboard_server = AstrBotDashboard(\n41:             core_lifecycle,\n42:             self.db,\n43:             core_lifecycle.dashboard_shutdown_event,\n44:             webui_dir,\n45:         )\n46: \n47:         coro = self.dashboard_server.run()\n48:         if coro:\n49:             # 启动核心任务和仪表板服务器\n50:             task = asyncio.gather(core_task, coro)\n51:         else:\n52:             task = core_task\n53:         try:\n54:             await task  # 整个AstrBot在这里运行\n55:         except asyncio.CancelledError:\n56:             logger.info(\"🌈 正在关闭 AstrBot...\")\n57:             await core_lifecycle.stop()\n\n(End of file - total 57 lines)\n</content>",
+            "title": "astrbot/core/initial_loader.py",
+            "metadata": {
+              "preview": "\"\"\"AstrBot 启动器，负责初始化和启动核心组件和仪表板服务器。\n\n工作流程:\n1. 初始化核心生命周期, 传递数据库和日志代理实例到核心生命周期\n2. 运行核心生命周期任务和仪表板服务器\n\"\"\"\n\nimport asyncio\nimport traceback\n\nfrom astrbot.core import LogBroker, logger\nfrom astrbot.core.core_lifecycle import AstrBotCoreLifecycle\nfrom astrbot.core.db import BaseDatabase\nfrom astrbot.dashboard.server import AstrBotDashboard\n\n\nclass InitialLoader:\n    \"\"\"AstrBot 启动器，负责初始化和启动核心组件和仪表板服务器。\"\"\"\n\n    def __init__(self, db: BaseDatabase, log_broker: LogBroker) -> None:",
+              "truncated": false,
+              "loaded": []
+            },
+            "time": {
+              "start": 1773131334301,
+              "end": 1773131334316
+            }
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "fc_094e51da55a177930169afd646094c8191af5ae21e434ccfa1"
+            }
+          },
+          "id": "prt_cd6dd01f6001jgD8JPgpu5TebM",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dced430015oNyk6LJCzPAYP"
+        },
+        {
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "cost": 0,
+          "tokens": {
+            "total": 56515,
+            "input": 709,
+            "output": 126,
+            "reasoning": 70,
+            "cache": {
+              "read": 55680,
+              "write": 0
+            }
+          },
+          "id": "prt_cd6dd0340001x6u2EfVey0t5FV",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dced430015oNyk6LJCzPAYP"
+        }
+      ]
+    },
+    {
+      "info": {
+        "role": "assistant",
+        "time": {
+          "created": 1773131334490
+        },
+        "parentID": "msg_cd6dad8720010NEwYk0NBleUUu",
+        "modelID": "gpt-5.4",
+        "providerID": "openai",
+        "mode": "oracle",
+        "agent": "oracle",
+        "path": {
+          "cwd": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405",
+          "root": "/home/gargantua/career_planning/AstrBot_Issue/AstrBot_5405"
+        },
+        "cost": 0,
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cache": {
+            "read": 0,
+            "write": 0
+          }
+        },
+        "id": "msg_cd6dd035a001eJeGe7MVXtLd8A",
+        "sessionID": "ses_329252790ffeOIqJQIQl30jLS5"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "snapshot": "77b5e23c48bf36313cfe07a09fd32e7831bd32f9",
+          "id": "prt_cd6dd1930001Dn1gOhP5EH5Ziz",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dd035a001eJeGe7MVXtLd8A"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Identifying risks in app behavior**\n\nMy main concern is around the correctness risk when the app boots from the bundled distribution. Specifically, downloading `data/dist` through `/api/update/dashboard` while having `Quart(static_folder=...)` still linked to the bundled path means that the \"refresh applies new version\" statement isn't accurate until a restart happens. I need to fix this by ensuring the dashboard server switches to `data/dist` after updates, or update the message to suggest a restart. I also want to consider a targeted test for the startup process.",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_02141d1cf5126ccc0169afd64cb18081919a20e0271ec60e63"
+            }
+          },
+          "time": {
+            "start": 1773131340780,
+            "end": 1773131371876
+          },
+          "id": "prt_cd6dd1bec001tFb5mxxZm1x4De",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dd035a001eJeGe7MVXtLd8A"
+        },
+        {
+          "type": "reasoning",
+          "text": "**Reviewing code merge conditions**\n\nI need to reference the test and build results without ignoring them. I’ll say something like, \"Given the reported green status from `ruff`, `pytest tests/test_main.py`, and `uv build`, I wouldn't block the merge on direction.\" However, I want to make sure that the startup-from-bundled and update-path behavior is either addressed or explicitly accepted. It’s important to keep this concise since it’s only a review. Let’s work on crafting that message!",
+          "metadata": {
+            "openai": {
+              "itemId": "rs_02141d1cf5126ccc0169afd64cb18081919a20e0271ec60e63",
+              "reasoningEncryptedContent": "REDACTED"
+            }
+          },
+          "time": {
+            "start": 1773131371877,
+            "end": 1773131373312
+          },
+          "id": "prt_cd6dd9565001B87y1Af00DXGsk",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dd035a001eJeGe7MVXtLd8A"
+        },
+        {
+          "type": "text",
+          "text": "",
+          "time": {
+            "start": 1773131373314
+          },
+          "metadata": {
+            "openai": {
+              "itemId": "msg_02141d1cf5126ccc0169afd66d2f6c8191b7031eeff692b3da"
+            }
+          },
+          "id": "prt_cd6dd9b02001vLvH3GHIGwACOS",
+          "sessionID": "ses_329252790ffeOIqJQIQl30jLS5",
+          "messageID": "msg_cd6dd035a001eJeGe7MVXtLd8A"
+        }
+      ]
+    }
+  ]
+}

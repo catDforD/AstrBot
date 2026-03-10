@@ -1,0 +1,7 @@
+1. TASK: Review the recent optimization that unified dashboard dist path resolution and made startup reuse bundled dashboard assets instead of forcing a download when `data/dist` is missing.
+2. EXPECTED OUTCOME: Identify any correctness risks, edge cases, or follow-up fixes needed; confirm whether the implementation direction is sound.
+3. REQUIRED TOOLS: Read, Grep, diff/status inspection, no write tools.
+4. MUST DO: Inspect `main.py`, `astrbot/core/utils/io.py`, and `tests/test_main.py`; evaluate path precedence, behavior when version file is missing, and whether returning bundled dist is safe.
+5. MUST NOT DO: Do not modify files, do not suggest speculative large refactors, do not ignore the provided tests/build results.
+6. CONTEXT: Current implementation introduced `get_dashboard_dist_path()` in `astrbot/core/utils/io.py`, updated `main.check_dashboard_files()` to use it, and added a regression test for bundled dist reuse. Local verification already passed: `uv run ruff check .`, `uv run pytest tests/test_main.py`, and `uv build`.
+<!-- OMO_INTERNAL_INITIATOR -->

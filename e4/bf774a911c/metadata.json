@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.5.0",
+  "checkpoint_id": "e4bf774a911c",
+  "strategy": "manual-commit",
+  "branch": "feat/5178-custom-llm-error",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "astrbot/core/utils/io.py",
+    "main.py",
+    "tests/test_main.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/e4/bf774a911c/0/metadata.json",
+      "transcript": "/e4/bf774a911c/0/full.jsonl",
+      "content_hash": "/e4/bf774a911c/0/content_hash.txt",
+      "prompt": "/e4/bf774a911c/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 56033,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 600576,
+    "output_tokens": 2894,
+    "api_call_count": 15
+  }
+}
