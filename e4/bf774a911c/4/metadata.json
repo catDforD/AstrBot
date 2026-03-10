@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.5.0",
+  "checkpoint_id": "e4bf774a911c",
+  "session_id": "ses_3292aba32ffeoKKFVgKAIIxxcv",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-10T08:29:44.088477115Z",
+  "branch": "feat/5178-custom-llm-error",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "tests/test_main.py",
+    "astrbot/core/utils/io.py",
+    "main.py"
+  ],
+  "agent": "OpenCode",
+  "model": "gpt-5.4",
+  "turn_id": "def94ab77aea",
+  "initial_attribution": {
+    "calculated_at": "2026-03-10T08:29:44.088071453Z",
+    "agent_lines": 40,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 40,
+    "agent_percentage": 100
+  }
+}
