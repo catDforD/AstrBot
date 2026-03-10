@@ -1,0 +1,7 @@
+1. TASK: Inspect the backend Python codebase and identify 2-4 concrete optimization opportunities worth implementing on the current branch.
+2. EXPECTED OUTCOME: Return a short ranked list with file paths, why each candidate matters, and a low-risk recommendation for the best one.
+3. REQUIRED TOOLS: Read, Grep, Glob, LSP/symbol search if useful.
+4. MUST DO: Focus on maintainability/performance/reliability improvements that are realistic in one coding pass. Mention existing patterns to follow.
+5. MUST NOT DO: Do not modify files, do not run git write operations, do not speculate without file evidence.
+6. CONTEXT: Repo is AstrBot. Need a concrete optimization I can implement safely and verify today.
+<!-- OMO_INTERNAL_INITIATOR -->
