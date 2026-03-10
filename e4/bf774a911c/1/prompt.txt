@@ -1,0 +1,7 @@
+1. TASK: Search the repo for obvious duplication, inefficient patterns, weak error handling, or cleanup opportunities that would make a good small optimization.
+2. EXPECTED OUTCOME: Return the best 3 candidates with exact files, code smell description, and why the top pick is best.
+3. REQUIRED TOOLS: Grep, Glob, Read, symbol tools if helpful.
+4. MUST DO: Prefer opportunities with clear testability and low blast radius.
+5. MUST NOT DO: Do not edit anything, do not make vague recommendations, do not rely on style-only changes.
+6. CONTEXT: I need to pick one worthwhile improvement and then implement it myself.
+<!-- OMO_INTERNAL_INITIATOR -->
