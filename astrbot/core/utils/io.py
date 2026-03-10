@@ -219,19 +219,30 @@ def get_local_ip_addresses():
 
 
 async def get_dashboard_version():
-    # First check user data directory (manually updated / downloaded dashboard).
-    dist_dir = os.path.join(get_astrbot_data_path(), "dist")
-    if not os.path.exists(dist_dir):
-        # Fall back to the dist bundled inside the installed wheel.
-        _bundled = Path(get_astrbot_path()) / "astrbot" / "dashboard" / "dist"
-        if _bundled.exists():
-            dist_dir = str(_bundled)
+    dist_dir = get_dashboard_dist_path()
+    if dist_dir is None:
+        return None
+
     if os.path.exists(dist_dir):
         version_file = os.path.join(dist_dir, "assets", "version")
         if os.path.exists(version_file):
             with open(version_file, encoding="utf-8") as f:
                 v = f.read().strip()
                 return v
+    return None
+
+
+def get_dashboard_dist_path() -> str | None:
+    # First check user data directory (manually updated / downloaded dashboard).
+    data_dist_dir = Path(get_astrbot_data_path()) / "dist"
+    if data_dist_dir.exists():
+        return str(data_dist_dir)
+
+    # Fall back to the dist bundled inside the installed wheel.
+    bundled_dist_dir = Path(get_astrbot_path()) / "astrbot" / "dashboard" / "dist"
+    if bundled_dist_dir.exists():
+        return str(bundled_dist_dir)
+
     return None
 
 

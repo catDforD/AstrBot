@@ -23,6 +23,7 @@ from astrbot.core.utils.astrbot_path import (  # noqa: E402
 )
 from astrbot.core.utils.io import (  # noqa: E402
     download_dashboard,
+    get_dashboard_dist_path,
     get_dashboard_version,
 )
 
@@ -74,8 +75,8 @@ async def check_dashboard_files(webui_dir: str | None = None):
             return webui_dir
         logger.warning(f"指定的 WebUI 目录 {webui_dir} 不存在，将使用默认逻辑。")
 
-    data_dist_path = os.path.join(get_astrbot_data_path(), "dist")
-    if os.path.exists(data_dist_path):
+    dashboard_dist_path = get_dashboard_dist_path()
+    if dashboard_dist_path is not None:
         v = await get_dashboard_version()
         if v is not None:
             # 存在文件
@@ -85,7 +86,7 @@ async def check_dashboard_files(webui_dir: str | None = None):
                 logger.warning(
                     f"检测到 WebUI 版本 ({v}) 与当前 AstrBot 版本 (v{VERSION}) 不符。",
                 )
-        return data_dist_path
+        return dashboard_dist_path
 
     logger.info(
         "开始下载管理面板文件...高峰期（晚上）可能导致较慢的速度。如多次下载失败，请前往 https://github.com/AstrBotDevs/AstrBot/releases/latest 下载 dist.zip，并将其中的 dist 文件夹解压至 data 目录下。",
@@ -98,7 +99,7 @@ async def check_dashboard_files(webui_dir: str | None = None):
         return None
 
     logger.info("管理面板下载完成。")
-    return data_dist_path
+    return str(Path(get_astrbot_data_path()) / "dist")
 
 
 async def main_async(webui_dir_arg: str | None) -> None:

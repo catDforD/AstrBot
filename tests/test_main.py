@@ -96,7 +96,7 @@ def test_version_info_comparisons():
 @pytest.mark.asyncio
 async def test_check_dashboard_files_not_exists(monkeypatch):
     """Tests dashboard download when files do not exist."""
-    monkeypatch.setattr(os.path, "exists", lambda x: False)
+    monkeypatch.setattr("main.get_dashboard_dist_path", lambda: None)
 
     with mock.patch("main.download_dashboard") as mock_download:
         await check_dashboard_files()
@@ -119,6 +119,22 @@ async def test_check_dashboard_files_exists_and_version_match(monkeypatch):
         with mock.patch("main.download_dashboard") as mock_download:
             await check_dashboard_files()
             # Assert that download_dashboard was NOT called
+            mock_download.assert_not_called()
+
+
+@pytest.mark.asyncio
+async def test_check_dashboard_files_uses_bundled_dist_without_download(monkeypatch):
+    bundled_dir = "/tmp/bundled-dist"
+    monkeypatch.setattr("main.get_dashboard_dist_path", lambda: bundled_dir)
+
+    with mock.patch("main.get_dashboard_version") as mock_get_version:
+        from main import VERSION
+
+        mock_get_version.return_value = f"v{VERSION}"
+
+        with mock.patch("main.download_dashboard") as mock_download:
+            result = await check_dashboard_files()
+            assert result == bundled_dir
             mock_download.assert_not_called()
 
 
